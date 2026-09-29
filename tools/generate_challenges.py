@@ -46,6 +46,7 @@ BOXES = [
     {"dir": "static-pine-radio", "code": "SR883", "os": "Linux", "flavor": "Debian 13 · headless CLI", "date": "Sept 22, 2026", "iso": "2026-09-22"},
     {"dir": "meridian-hq", "code": "S6QE5", "os": "Windows", "flavor": "Windows Server · Active Directory", "date": "Sept 23, 2026", "iso": "2026-09-23"},
     {"dir": "vermilion-relay", "code": "XPV8Z", "os": "Linux", "flavor": "Xubuntu XFCE", "date": "Sept 25, 2026", "iso": "2026-09-25"},
+    {"dir": "harborline-transit", "code": "3WBEH", "os": "Windows", "flavor": "Windows Server · Active Directory", "date": "Sept 28, 2026", "iso": "2026-09-28"},
 ]
 
 

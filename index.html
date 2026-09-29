@@ -145,10 +145,1306 @@
 
       <div class="search-wrap">
          <input id="search" type="search" placeholder="Search challenges&hellip;" autocomplete="off" autofocus>
-         <span id="count">8 of 8</span>
+         <span id="count">9 of 9</span>
       </div>
 
-      <div id="empty" hidden>No challenges match &mdash; clear the search to see all 8.</div>
+      <div id="empty" hidden>No challenges match &mdash; clear the search to see all 9.</div>
+
+  <article class="challenge">
+    <h2>Harborline Transit Authority</h2>
+    <p class="ch-meta">Windows &middot; Windows Server · Active Directory &middot; 366 pts &middot; Sept 28, 2026</p>
+    <div class="ch-links">
+      <a class="claim" href="https://vms.dawgsec.com/claim?code=3WBEH" rel="noopener">Start challenge VM&nbsp;&rarr;</a>
+      <details class="walkthrough">
+        <summary>Answer walkthrough</summary>
+        <p class="spoiler-note">Spoilers below &mdash; this gives away every point on the box. Try the box first.</p>
+        <div class="wt-layout">
+          <nav class="wt-toc" aria-label="Answer key contents">
+      <p class="wt-toc-group">The challenges</p>
+      <a href="#wt-harborline-transit-bprieto_disabled" title="EASY: The contractor account with a Domain Admin seat is disabled">EASY: The contractor account with a Domain Admin seat is disabled</a>
+      <a href="#wt-harborline-transit-lhaight_disabled" title="EASY: The offboarded auditor's account is disabled">EASY: The offboarded auditor's account is disabled</a>
+      <a href="#wt-harborline-transit-rdp_group_no_unauthorized" title="EASY: The Remote Desktop Users group has no unauthorized members">EASY: The Remote Desktop Users group has no unauthorized members</a>
+      <a href="#wt-harborline-transit-guest_disabled" title="EASY: The domain Guest account is disabled">EASY: The domain Guest account is disabled</a>
+      <a href="#wt-harborline-transit-stale_svc_disabled" title="EASY: The decommissioned fax-relay service account is disabled">EASY: The decommissioned fax-relay service account is disabled</a>
+      <a href="#wt-harborline-transit-audit_credential_validation_on" title="EASY: Credential-validation auditing records both success and failure">EASY: Credential-validation auditing records both success and failure</a>
+      <a href="#wt-harborline-transit-audit_process_creation_on" title="EASY: Process-creation auditing is enabled (event 4688)">EASY: Process-creation auditing is enabled (event 4688)</a>
+      <a href="#wt-harborline-transit-audit_user_account_mgmt_on" title="EASY: User-account-management auditing records failures too">EASY: User-account-management auditing records failures too</a>
+      <a href="#wt-harborline-transit-uac_enabled" title="EASY: User Account Control is enabled (EnableLUA = 1)">EASY: User Account Control is enabled (EnableLUA = 1)</a>
+      <a href="#wt-harborline-transit-uac_consent_prompt" title="EASY: UAC prompts before elevating again (consent behavior restored)">EASY: UAC prompts before elevating again (consent behavior restored)</a>
+      <a href="#wt-harborline-transit-uac_secure_desktop" title="EASY: UAC prompts render on the secure desktop again">EASY: UAC prompts render on the secure desktop again</a>
+      <a href="#wt-harborline-transit-no_autologin_password" title="EASY: The autologon credential stored in the registry is removed">EASY: The autologon credential stored in the registry is removed</a>
+      <a href="#wt-harborline-transit-backdoor_rule2_removed" title="EASY: A second undocumented inbound firewall allow rule is removed">EASY: A second undocumented inbound firewall allow rule is removed</a>
+      <a href="#wt-harborline-transit-llmnr_disabled" title="EASY: LLMNR name-resolution broadcast is disabled">EASY: LLMNR name-resolution broadcast is disabled</a>
+      <a href="#wt-harborline-transit-screen_lock_inactivity" title="EASY: The console locks itself after inactivity">EASY: The console locks itself after inactivity</a>
+      <a href="#wt-harborline-transit-always_install_elevated_off" title="EASY: MSI installs no longer run elevated for every user">EASY: MSI installs no longer run elevated for every user</a>
+      <a href="#wt-harborline-transit-defender_policy_clean" title="EASY: The 'DisableAntiSpyware' kill switch is cleared">EASY: The 'DisableAntiSpyware' kill switch is cleared</a>
+      <a href="#wt-harborline-transit-ps_transcription_on" title="EASY: PowerShell transcription is enabled">EASY: PowerShell transcription is enabled</a>
+      <a href="#wt-harborline-transit-spooler_stopped" title="EASY: The Print Spooler service is stopped">EASY: The Print Spooler service is stopped</a>
+      <a href="#wt-harborline-transit-spooler_disabled" title="EASY: The Print Spooler service is disabled at startup">EASY: The Print Spooler service is disabled at startup</a>
+      <a href="#wt-harborline-transit-dispatch_creds_removed" title="EASY: The leftover credentials file under C:\HarborlineData\scripts is removed">EASY: The leftover credentials file under C:\HarborlineData\scripts is removed</a>
+      <a href="#wt-harborline-transit-unattend_leftover_removed" title="EASY: The setup leftover carrying an account password is removed">EASY: The setup leftover carrying an account password is removed</a>
+      <a href="#wt-harborline-transit-stale_computer_disabled" title="EASY: The decommissioned workstation's computer account is disabled">EASY: The decommissioned workstation's computer account is disabled</a>
+      <a href="#wt-harborline-transit-runkey_pulse_payload_gone" title="EASY: The Run-key payload script under C:\ProgramData\Subsystems is removed">EASY: The Run-key payload script under C:\ProgramData\Subsystems is removed</a>
+      <a href="#wt-harborline-transit-runkey_widget_payload_gone" title="EASY: The second Run-key payload script is removed">EASY: The second Run-key payload script is removed</a>
+      <a href="#wt-harborline-transit-task_payload_removed" title="EASY: The scheduled task's payload script is removed">EASY: The scheduled task's payload script is removed</a>
+      <a href="#wt-harborline-transit-task2_payload_removed" title="EASY: The second task's payload script is removed">EASY: The second task's payload script is removed</a>
+      <a href="#wt-harborline-transit-ifeo_sethc_clean" title="EASY: The accessibility executable's Debugger hijack is removed">EASY: The accessibility executable's Debugger hijack is removed</a>
+      <a href="#wt-harborline-transit-ifeo_utilman_clean" title="EASY: The Utility Manager's Debugger hijack is removed">EASY: The Utility Manager's Debugger hijack is removed</a>
+      <a href="#wt-harborline-transit-wmi_payload_gone" title="EASY: The WMI consumer's payload script is removed">EASY: The WMI consumer's payload script is removed</a>
+      <a href="#wt-harborline-transit-w32time_running" title="EASY: The Windows Time service is running (the DC is the domain's time source)">EASY: The Windows Time service is running (the DC is the domain's time source)</a>
+      <a href="#wt-harborline-transit-kdc_running" title="EASY: The Kerberos Key Distribution Center service is running">EASY: The Kerberos Key Distribution Center service is running</a>
+      <a href="#wt-harborline-transit-netlogon_running" title="EASY: The Netlogon service is running (domain secure-channel machinery)">EASY: The Netlogon service is running (domain secure-channel machinery)</a>
+      <a href="#wt-harborline-transit-domain_admins_subset" title="MODERATE: Only the authorized administrator sits in Domain Admins">MODERATE: Only the authorized administrator sits in Domain Admins</a>
+      <a href="#wt-harborline-transit-operators_groups_clean" title="MODERATE: The built-in operator groups have no unauthorized members">MODERATE: The built-in operator groups have no unauthorized members</a>
+      <a href="#wt-harborline-transit-no_password_not_required" title="MODERATE: No enabled account accepts a blank password">MODERATE: No enabled account accepts a blank password</a>
+      <a href="#wt-harborline-transit-no_hidden_dollar_account" title="MODERATE: No account is hiding behind a dollar-suffix name">MODERATE: No account is hiding behind a dollar-suffix name</a>
+      <a href="#wt-harborline-transit-never_expires_clean" title="MODERATE: No ordinary enabled account is set to never expire its password">MODERATE: No ordinary enabled account is set to never expire its password</a>
+      <a href="#wt-harborline-transit-password_minlen" title="MODERATE: Minimum password length is at least 8 characters">MODERATE: Minimum password length is at least 8 characters</a>
+      <a href="#wt-harborline-transit-password_max_age" title="MODERATE: Passwords are forced to expire within 90 days">MODERATE: Passwords are forced to expire within 90 days</a>
+      <a href="#wt-harborline-transit-audit_logon_on" title="MODERATE: Logon auditing records both success and failure">MODERATE: Logon auditing records both success and failure</a>
+      <a href="#wt-harborline-transit-rdp_nla" title="MODERATE: Remote Desktop requires Network Level Authentication">MODERATE: Remote Desktop requires Network Level Authentication</a>
+      <a href="#wt-harborline-transit-no_autologin" title="MODERATE: Automatic logon is disabled">MODERATE: Automatic logon is disabled</a>
+      <a href="#wt-harborline-transit-smb1_disabled" title="MODERATE: The deprecated SMB1 protocol is disabled on the SMB server">MODERATE: The deprecated SMB1 protocol is disabled on the SMB server</a>
+      <a href="#wt-harborline-transit-anonymous_enum_restricted" title="MODERATE: Anonymous users cannot enumerate accounts and shares">MODERATE: Anonymous users cannot enumerate accounts and shares</a>
+      <a href="#wt-harborline-transit-share_encrypted_or_removed" title="MODERATE: The operations share encrypts its SMB traffic (or is gone)">MODERATE: The operations share encrypts its SMB traffic (or is gone)</a>
+      <a href="#wt-harborline-transit-ps2_legacy_engine_removed" title="MODERATE: The legacy PowerShell 2.0 script engine is removed">MODERATE: The legacy PowerShell 2.0 script engine is removed</a>
+      <a href="#wt-harborline-transit-defender_exclusions_clean" title="MODERATE: Defender has no scan exclusions pointing at attacker territory">MODERATE: Defender has no scan exclusions pointing at attacker territory</a>
+      <a href="#wt-harborline-transit-ps_scriptblock_logging_on" title="MODERATE: PowerShell script-block logging is enabled">MODERATE: PowerShell script-block logging is enabled</a>
+      <a href="#wt-harborline-transit-fleetsync_process_killed" title="MODERATE: The fleet-telemetry payload process is terminated">MODERATE: The fleet-telemetry payload process is terminated</a>
+      <a href="#wt-harborline-transit-fleetsync_stopped" title="MODERATE: The fleet-telemetry service is stopped">MODERATE: The fleet-telemetry service is stopped</a>
+      <a href="#wt-harborline-transit-regboost_stopped" title="MODERATE: The 'optimizer' service is stopped">MODERATE: The 'optimizer' service is stopped</a>
+      <a href="#wt-harborline-transit-regboost_disabled" title="MODERATE: The 'optimizer' service is disabled at startup">MODERATE: The 'optimizer' service is disabled at startup</a>
+      <a href="#wt-harborline-transit-transit_share_restricted" title="MODERATE: The operations share no longer grants Everyone access">MODERATE: The operations share no longer grants Everyone access</a>
+      <a href="#wt-harborline-transit-payroll_acl_restricted" title="MODERATE: The payroll export is no longer writable by Everyone">MODERATE: The payroll export is no longer writable by Everyone</a>
+      <a href="#wt-harborline-transit-hosts_redirect_removed" title="MODERATE: The hosts-file redirect to the fake payroll portal is removed">MODERATE: The hosts-file redirect to the fake payroll portal is removed</a>
+      <a href="#wt-harborline-transit-preauth_required" title="MODERATE: No account is left with Kerberos preauthentication disabled">MODERATE: No account is left with Kerberos preauthentication disabled</a>
+      <a href="#wt-harborline-transit-gpp_cpassword_purged" title="MODERATE: No Group Policy Preferences file under SYSVOL hides an encrypted password">MODERATE: No Group Policy Preferences file under SYSVOL hides an encrypted password</a>
+      <a href="#wt-harborline-transit-dnsadmins_member_removed" title="MODERATE: The DNSAdmins group has no members">MODERATE: The DNSAdmins group has no members</a>
+      <a href="#wt-harborline-transit-firewall_profiles_on" title="MODERATE: Windows Firewall is enabled on all profiles">MODERATE: Windows Firewall is enabled on all profiles</a>
+      <a href="#wt-harborline-transit-backdoor_rule_removed" title="MODERATE: The undocumented inbound firewall allow rule is removed">MODERATE: The undocumented inbound firewall allow rule is removed</a>
+      <a href="#wt-harborline-transit-runkey_pulse_removed" title="MODERATE: A Run-key persistence entry launching a hidden payload is removed">MODERATE: A Run-key persistence entry launching a hidden payload is removed</a>
+      <a href="#wt-harborline-transit-runkey_widget_removed" title="MODERATE: The second Run-key persistence entry is removed">MODERATE: The second Run-key persistence entry is removed</a>
+      <a href="#wt-harborline-transit-rogue_task_removed" title="MODERATE: A rogue scheduled task running a payload from C:\ProgramData\Subsystems is removed">MODERATE: A rogue scheduled task running a payload from C:\ProgramData\Subsystems is removed</a>
+      <a href="#wt-harborline-transit-rogue_task2_removed" title="MODERATE: The second rogue scheduled task is removed">MODERATE: The second rogue scheduled task is removed</a>
+      <a href="#wt-harborline-transit-winlogon_userinit_clean" title="MODERATE: The Winlogon Userinit value launches nothing beyond the stock initializer">MODERATE: The Winlogon Userinit value launches nothing beyond the stock initializer</a>
+      <a href="#wt-harborline-transit-wmi_binding_removed" title="MODERATE: The WMI event-subscription persistence is removed">MODERATE: The WMI event-subscription persistence is removed</a>
+      <a href="#wt-harborline-transit-startup_item_removed" title="MODERATE: The startup-folder item is removed">MODERATE: The startup-folder item is removed</a>
+      <a href="#wt-harborline-transit-svc_sched_password_rotated" title="HARD: The scheduling integration account's password has been rotated off its original">HARD: The scheduling integration account's password has been rotated off its original</a>
+      <a href="#wt-harborline-transit-password_lockout" title="HARD: Account lockout threshold is at least 5 invalid attempts">HARD: Account lockout threshold is at least 5 invalid attempts</a>
+      <a href="#wt-harborline-transit-ldap_signing_required" title="HARD: The domain controller requires LDAP signing">HARD: The domain controller requires LDAP signing</a>
+      <a href="#wt-harborline-transit-wdigest_cleartext_off" title="HARD: WDigest no longer keeps a cleartext copy of every logon credential">HARD: WDigest no longer keeps a cleartext copy of every logon credential</a>
+      <a href="#wt-harborline-transit-lsa_ppl_on" title="HARD: LSA runs as a protected process (RunAsPPL = 1)">HARD: LSA runs as a protected process (RunAsPPL = 1)</a>
+      <a href="#wt-harborline-transit-lm_compat_ntlmv2_only" title="HARD: The NTLM stack refuses legacy LM/NTLMv1 responses (level 5)">HARD: The NTLM stack refuses legacy LM/NTLMv1 responses (level 5)</a>
+      <a href="#wt-harborline-transit-fleetsync_disabled" title="HARD: The fleet-telemetry service is disabled at startup">HARD: The fleet-telemetry service is disabled at startup</a>
+      <a href="#wt-harborline-transit-regboost_process_killed" title="HARD: The payload process of the disguised 'optimizer' service is terminated">HARD: The payload process of the disguised 'optimizer' service is terminated</a>
+      <a href="#wt-harborline-transit-faregw_delegation_cleared" title="HARD: The fare-gateway computer trusted for unconstrained delegation has it removed">HARD: The fare-gateway computer trusted for unconstrained delegation has it removed</a>
+      <a href="#wt-harborline-transit-des_downgrade_cleared" title="HARD: No account is restricted to legacy DES-only Kerberos encryption">HARD: No account is restricted to legacy DES-only Kerberos encryption</a>
+      <a href="#wt-harborline-transit-dcsync_rights_revoked" title="HARD: The account with directory-replication (DCSync) rights on the domain root has them revoked">HARD: The account with directory-replication (DCSync) rights on the domain root has them revoked</a>
+      <a href="#wt-harborline-transit-gpo_persistence_removed" title="HARD: The GPO pushing a Run-key payload to every domain machine is removed (or its value cleared)">HARD: The GPO pushing a Run-key payload to every domain machine is removed (or its value cleared)</a>
+      <p class="wt-toc-group">Penalties</p>
+      <a href="#wt-harborline-transit-legit_staff_intact" title="PENALTY: Disabling or deleting the payroll staff account costs 10 points">PENALTY: Disabling or deleting the payroll staff account costs 10 points</a>
+      <a href="#wt-harborline-transit-payroll_file_present" title="PENALTY: Destroying the payroll export evidence at C:\HarborlineData\payroll-export.csv costs 10 points">PENALTY: Destroying the payroll export evidence at C:\HarborlineData\payroll-export.csv costs 10 points</a>
+      <a href="#wt-harborline-transit-dns_service_running" title="PENALTY: Stopping the DNS Server service costs 10 points">PENALTY: Stopping the DNS Server service costs 10 points</a>
+      <p class="wt-toc-group">Forensics</p>
+      <a href="#wt-harborline-transit-fq_hidden_dollar_account" title="Q1. One rogue account hides behind a dollar-suffix name so it blends into the computer accounts. What is that account's username?">Q1. One rogue account hides behind a dollar-suffix name so it blends into the computer accounts. What is that account's username?</a>
+      <a href="#wt-harborline-transit-fq_no_password_account" title="Q2. One enabled account is flagged to not require a password at all -- it logs on with an empty one. What is that account's username?">Q2. One enabled account is flagged to not require a password at all -- it logs on with an empty one. What is that account's username?</a>
+      <a href="#wt-harborline-transit-fq_asrep_user" title="Q3. One domain account was left WITHOUT Kerberos preauthentication, making it an AS-REP roasting target. What is that account's username?">Q3. One domain account was left WITHOUT Kerberos preauthentication, making it an AS-REP roasting target. What is that account's username?</a>
+      <a href="#wt-harborline-transit-fq_gpp_password" title="Q4. A Group Policy Preferences file under SYSVOL stores a local-admin password AES-encrypted with Microsoft's published MS14-025 key. What is the DECRYPTED cleartext password?">Q4. A Group Policy Preferences file under SYSVOL stores a local-admin password AES-encrypted with Microsoft's published MS14-025 key. What is the DECRYPTED cleartext password?</a>
+      <a href="#wt-harborline-transit-fq_rogue_gpo" title="Q5. Attackers created a Group Policy Object that pushes a Run-key payload to every machine in the domain. What is that GPO's exact display name?">Q5. Attackers created a Group Policy Object that pushes a Run-key payload to every machine in the domain. What is that GPO's exact display name?</a>
+      <a href="#wt-harborline-transit-fq_task_name" title="Q6. A rogue scheduled task ran a payload out of C:\ProgramData\Subsystems while wearing a browser-updater costume. What is the task's exact name?">Q6. A rogue scheduled task ran a payload out of C:\ProgramData\Subsystems while wearing a browser-updater costume. What is the task's exact name?</a>
+      <a href="#wt-harborline-transit-fq_runkey_value" title="Q7. Run keys under HKLM launch hidden PowerShell payloads at logon. What is the exact name of the registry VALUE whose payload file is fleetpulse.ps1?">Q7. Run keys under HKLM launch hidden PowerShell payloads at logon. What is the exact name of the registry VALUE whose payload file is fleetpulse.ps1?</a>
+      <a href="#wt-harborline-transit-fq_ifeo_executable" title="Q8. An Image File Execution Options Debugger hijack waits on one of the two accessibility executables that launch from the logon screen. Which executable is hijacked -- sethc.exe or utilman.exe?">Q8. An Image File Execution Options Debugger hijack waits on one of the two accessibility executables that launch from the logon screen. Which executable is hijacked -- sethc.exe or utilman.exe?</a>
+          </nav>
+          <div class="wt-main">
+      <p class="wt-group">The challenges &middot; 80 checks &middot; 302 points</p>
+      <section class="wt-item" id="wt-harborline-transit-bprieto_disabled">
+        <h3>EASY: The contractor account with a Domain Admin seat is disabled <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find the account.</strong> <code>Get-ADUser bprieto -Properties Enabled, Description</code> -- &quot;Field contractor - signaling upgrade&quot; -- yet it sat in Domain Admins. Temporary staffing with permanent power.</p>
+<p><strong>2. Disable it -- do NOT delete it.</strong> The scored state is the account existing AND disabled: deleting it earns zero here and destroys the evidence other tasks and questions still need.</p>
+<pre><code>Disable-ADAccount -Identity bprieto</code></pre>
+<p>GUI route: ADUC &gt; Users &gt; bprieto &gt; Properties &gt; Account tab &gt; tick &quot;Account is disabled&quot;.</p>
+<p><strong>3. Confirm.</strong> <code>Get-ADUser bprieto</code> reports <code>Enabled : False</code>. Its Domain Admins seat is a separate task.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-lhaight_disabled">
+        <h3>EASY: The offboarded auditor's account is disabled <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find the account.</strong> The description says the person is gone (&quot;Night ops auditor (offboarded)&quot;) -- but the account was left enabled, and it still holds seats in privileged groups (its own tasks).</p>
+<p><strong>2. Disable it -- do NOT delete it</strong> (the group memberships and the account itself are the evidence the incident needs):</p>
+<pre><code>Disable-ADAccount -Identity lhaight</code></pre>
+<p><strong>3. Confirm.</strong> <code>Get-ADUser lhaight</code> reports <code>Enabled : False</code>, then scrub its group seats (the operator-groups and RDP-group tasks).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-rdp_group_no_unauthorized">
+        <h3>EASY: The Remote Desktop Users group has no unauthorized members <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. List the group.</strong> On a domain controller &quot;Remote Desktop Users&quot; is a domain (Builtin) group -- check it from AD, not the local SAM:</p>
+<pre><code>Get-ADGroupMember &#x27;Remote Desktop Users&#x27;</code></pre>
+<p>The scored state is an EMPTY group -- RDP access is a doorway, not a perk. One offboarded account is still holding a seat. (Remote Desktop itself stays ON -- who can log on is the finding, not whether the door exists.)</p>
+<p><strong>2. Remove every member:</strong></p>
+<pre><code>Remove-ADGroupMember &#x27;Remote Desktop Users&#x27; -Members &lt;the member&gt;</code></pre>
+<p>GUI route: ADUC &gt; Builtin &gt; Remote Desktop Users &gt; Members tab &gt; Remove.</p>
+<p><strong>3. Confirm.</strong> <code>Get-ADGroupMember &#x27;Remote Desktop Users&#x27;</code> returns nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-guest_disabled">
+        <h3>EASY: The domain Guest account is disabled <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Check it.</strong> In a domain, the Guest account lives in AD (not the local SAM) and a fresh domain ships it disabled -- so if it is on, someone turned it on:</p>
+<pre><code>Get-ADUser Guest -Properties Enabled     # Enabled : True</code></pre>
+<p><strong>2. Disable it:</strong></p>
+<pre><code>Disable-ADAccount -Identity Guest</code></pre>
+<p>GUI route: ADUC &gt; Users &gt; Guest &gt; Properties &gt; tick &quot;Account is disabled&quot;.</p>
+<p><strong>3. Confirm.</strong> <code>Get-ADUser Guest -Properties Enabled</code> reports <code>Enabled : False</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-stale_svc_disabled">
+        <h3>EASY: The decommissioned fax-relay service account is disabled <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find the orphan.</strong> The description says the fax relay was decommissioned years ago, yet its account is still enabled -- an enabled service account nobody remembers is a free identity for anything that learns its (old, weak) password:</p>
+<pre><code>Get-ADUser -Filter &quot;SamAccountName -eq &#x27;svc_faxrelay&#x27;&quot; -Properties Description, Enabled</code></pre>
+<p><strong>2. Disable it -- do NOT delete it</strong> (a disabled account keeps the audit trail; deletion breaks whatever still half-references it):</p>
+<pre><code>Disable-ADAccount -Identity svc_faxrelay</code></pre>
+<p><strong>3. Confirm.</strong> <code>Enabled : False</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-audit_credential_validation_on">
+        <h3>EASY: Credential-validation auditing records both success and failure <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Check the category.</strong> Credential Validation is the subcategory that records every authentication the domain performs -- spray tooling and pass-the-hash both leave their traces here:</p>
+<pre><code>auditpol /get /subcategory:&quot;Credential Validation&quot;
+Credential Validation        No Auditing</code></pre>
+<p><strong>2. Turn on both directions:</strong></p>
+<pre><code>auditpol /set /subcategory:&quot;Credential Validation&quot; /success:enable /failure:enable</code></pre>
+<p>(or Default Domain Controllers Policy &gt; Advanced Audit Policy Configuration &gt; Account Logon &gt; Audit Credential Validation &gt; Success and Failure.)</p>
+<p><strong>3. Confirm.</strong> The <code>auditpol /get</code> line lists Success and Failure both enabled.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-audit_process_creation_on">
+        <h3>EASY: Process-creation auditing is enabled (event 4688) <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Notice the default.</strong> Nothing was planted here -- Windows Server ships with process-creation auditing OFF. That is the finding: without event 4688 you have no record of what the intruder EXECUTED, only where they logged in:</p>
+<pre><code>auditpol /get /subcategory:&quot;Process Creation&quot;
+Process Creation             No Auditing</code></pre>
+<p><strong>2. Turn it on:</strong></p>
+<pre><code>auditpol /set /subcategory:&quot;Process Creation&quot; /success:enable /failure:enable</code></pre>
+<p>(4688 also needs the &quot;Audit Process Creation&quot; GPO and, for full command lines, the process-creation administrative template -- the auditpol switch alone is what scores.)</p>
+<p><strong>3. Confirm.</strong> <code>auditpol /get /subcategory:&quot;Process Creation&quot;</code> lists Success and Failure enabled.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-audit_user_account_mgmt_on">
+        <h3>EASY: User-account-management auditing records failures too <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the category.</strong> User Account Management covers account creation, group changes, and -- the half that ships disabled -- FAILED attempts to change them. Success-only auditing is half a camera: it records the admin&#x27;s work but not the attacker&#x27;s failures:</p>
+<pre><code>auditpol /get /subcategory:&quot;User Account Management&quot;
+User Account Management      Success</code></pre>
+<p><strong>2. Turn on both directions:</strong></p>
+<pre><code>auditpol /set /subcategory:&quot;User Account Management&quot; /success:enable /failure:enable</code></pre>
+<p><strong>3. Confirm.</strong> The <code>auditpol /get</code> line lists Success and Failure both enabled.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-uac_enabled">
+        <h3>EASY: User Account Control is enabled (EnableLUA = 1) <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. See the state.</strong> With UAC&#x27;s EnableLUA switched off, every administrator token is full admin all the time -- no consent prompt, and code running as an admin needs no elevation step to own the box:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v EnableLUA
+    EnableLUA    REG_DWORD    0x0</code></pre>
+<p><strong>2. Turn it back on:</strong></p>
+<pre><code>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v EnableLUA /t REG_DWORD /d 1 /f</code></pre>
+<p>GUI route: regedit to the same key. The consent-prompt slider in Control Panel is cosmetic here -- the scored bit is EnableLUA itself.</p>
+<p><strong>3. Confirm.</strong> The reg query reads 0x1. Fresh tokens appear at the next sign-in, but the check reads the value, so the point lands immediately.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-uac_consent_prompt">
+        <h3>EASY: UAC prompts before elevating again (consent behavior restored) <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the toggle.</strong> EnableLUA is only half of UAC -- check what elevation DOES now:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v ConsentPromptBehaviorAdmin
+    ConsentPromptBehaviorAdmin    REG_DWORD    0x0</code></pre>
+<p>0 means every elevation happens silently -- the consent dialog, the one checkpoint where a user notices something is wrong, is gone.</p>
+<p><strong>2. Restore the prompt</strong> (delete the value or set it back to the default 5):</p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v ConsentPromptBehaviorAdmin /f</code></pre>
+<p><strong>3. Confirm.</strong> The reg query errors &quot;unable to find ... value&quot; (or reads a non-zero value).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-uac_secure_desktop">
+        <h3>EASY: UAC prompts render on the secure desktop again <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the toggle.</strong> A UAC prompt that renders on the ordinary desktop is a prompt any running process can interact with:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v PromptOnSecureDesktop
+    PromptOnSecureDesktop    REG_DWORD    0x0</code></pre>
+<p><strong>2. Restore the isolated desktop:</strong></p>
+<pre><code>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v PromptOnSecureDesktop /t REG_DWORD /d 1 /f</code></pre>
+<p>(or delete the value -- the Windows default is on.)</p>
+<p><strong>3. Confirm.</strong> The reg query reads 0x1.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-no_autologin_password">
+        <h3>EASY: The autologon credential stored in the registry is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find it.</strong> In the same Winlogon key sits <code>DefaultPassword</code> -- the autologon credential in PLAINTEXT, readable out of the registry by anything running with admin rights:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v DefaultPassword
+    DefaultPassword    REG_SZ    KioskDispatch1!</code></pre>
+<p>That password is now burned -- treat it as compromised everywhere it was reused.</p>
+<p><strong>2. Delete the value:</strong></p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v DefaultPassword /f</code></pre>
+<p><strong>3. Confirm.</strong> The query errors &quot;unable to find ... value&quot;. If the autologon user keeps an account anywhere, rotate its password too.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-backdoor_rule2_removed">
+        <h3>EASY: A second undocumented inbound firewall allow rule is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p>The second backdoor door -- attackers never leave just one, so a ruleset cleanup that stops at the first rule is not a cleanup (full walkthrough in the TransitSync task):</p>
+<pre><code>Remove-NetFirewallRule -Name &#x27;FleetCommand&#x27;</code></pre>
+<p><strong>Confirm.</strong> <code>Get-NetFirewallRule -Name &#x27;FleetCommand&#x27;</code> returns nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-llmnr_disabled">
+        <h3>EASY: LLMNR name-resolution broadcast is disabled <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Notice the default.</strong> Nothing was planted -- Link-Local Multicast Name Resolution ships enabled, and it is the protocol that lets ANY machine on the segment answer a mistyped hostname and harvest the authentication hashes that follow (a responder-in-a-corner attack needs nothing but this default):</p>
+<pre><code>Get-ItemProperty &#x27;HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient&#x27; -Name EnableMulticast</code></pre>
+<p>(the value being absent means the default -- on -- is in force).</p>
+<p><strong>2. Switch it off</strong> via policy:</p>
+<pre><code>gpedit.msc &gt; Computer Configuration &gt; Administrative Templates &gt;
+  Network &gt; DNS Client &gt; &quot;Turn off multicast name resolution&quot; &gt; Enabled</code></pre>
+<p>(which writes EnableMulticast=0 here; a direct <code>reg add</code> scores the same.)</p>
+<p><strong>3. Confirm.</strong> The Get-ItemProperty above reads 0.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-screen_lock_inactivity">
+        <h3>EASY: The console locks itself after inactivity <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the limit.</strong> A console session on a domain controller that never locks is a session an attacker only has to find:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System&quot; /v InactivityTimeoutSecs</code></pre>
+<p>(absent = the machine never locks itself).</p>
+<p><strong>2. Set the limit</strong> -- 900 seconds (15 minutes) or less scores:</p>
+<pre><code>secpol.msc &gt; Local Policies &gt; Security Options &gt;
+  &quot;Interactive logon: Machine inactivity limit&quot; &gt; 900</code></pre>
+<p>(or <code>reg add</code> the value directly -- same store, same result).</p>
+<p><strong>3. Confirm.</strong> The reg query reads a value between 1 and 900.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-always_install_elevated_off">
+        <h3>EASY: MSI installs no longer run elevated for every user <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the policy.</strong> Two values must agree for the danger -- the machine hive is one of them:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer&quot; /v AlwaysInstallElevated
+    AlwaysInstallElevated    REG_DWORD    0x1</code></pre>
+<p>With it set, any user who can copy a file can hand the Windows Installer a malicious .MSI and receive a SYSTEM process.</p>
+<p><strong>2. Clear it</strong> (delete the value, or set 0) in BOTH hives:</p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer&quot; /v AlwaysInstallElevated /f
+reg delete &quot;HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer&quot; /v AlwaysInstallElevated /f</code></pre>
+<p><strong>3. Confirm.</strong> The HKLM query errors &quot;unable to find ... value&quot; (or reads 0).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-defender_policy_clean">
+        <h3>EASY: The 'DisableAntiSpyware' kill switch is cleared <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find the kill switch.</strong> Real-time monitoring has its own task; this is the policy that tells Defender to not exist at all:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows Defender&quot; /v DisableAntiSpyware
+    DisableAntiSpyware    REG_DWORD    0x1</code></pre>
+<p>A 1 here is the classic pre-attack move: the engine loads, shows green in old consoles, and scans nothing.</p>
+<p><strong>2. Delete the policy value</strong> (or set it 0):</p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows Defender&quot; /v DisableAntiSpyware /f</code></pre>
+<p><strong>3. Confirm.</strong> The reg query errors &quot;unable to find ... value&quot;.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-ps_transcription_on">
+        <h3>EASY: PowerShell transcription is enabled <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the switch.</strong> Transcription writes every PowerShell session&#x27;s input and output to a timestamped file -- the full transcript of what an attacker typed:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription&quot; /v EnableTranscripting
+    EnableTranscripting    REG_DWORD    0x0</code></pre>
+<p><strong>2. Turn it on:</strong></p>
+<pre><code>reg add &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\Transcription&quot; /v EnableTranscripting /t REG_DWORD /d 1 /f</code></pre>
+<p>(GPO route: Administrative Templates &gt; Windows Components &gt; Windows PowerShell &gt; Turn on PowerShell Transcription; set the output directory to a protected share if you like.)</p>
+<p><strong>3. Confirm.</strong> The reg query reads 0x1. Pairs with script-block logging: that one records what the ENGINE ran, this one records what the USER saw.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-spooler_stopped">
+        <h3>EASY: The Print Spooler service is stopped <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>Spooler</code> must be stopped (not running now) &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>Spooler</code></p>
+        <div class="wt-body">
+<p><strong>1. Ask what a domain controller prints.</strong> Nothing -- yet the Print Spooler ships running and auto-start on every Windows Server by default, and it is the service behind the PrintNightmare class of remote code execution. Nothing was planted here: the insecure DEFAULT is the finding.</p>
+<pre><code>Get-Service Spooler        # Running</code></pre>
+<p><strong>2. Stop it:</strong></p>
+<pre><code>Stop-Service Spooler -Force</code></pre>
+<p>(services.msc &gt; Print Spooler &gt; Stop.)</p>
+<p><strong>3. Confirm.</strong> <code>Get-Service Spooler</code> reports <code>Status : Stopped</code>. Stopping earns the easy half -- the disabled-at-startup task is the rest.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-spooler_disabled">
+        <h3>EASY: The Print Spooler service is disabled at startup <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>Spooler</code> must be disabled (won't start at boot) &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>Spooler</code></p>
+        <div class="wt-body">
+<p>A stopped spooler survives only until the next reboot -- the startup type is still the Windows default (Automatic). Make the off-state permanent:</p>
+<pre><code>Set-Service Spooler -StartupType Disabled</code></pre>
+<p>GUI route: services.msc &gt; Print Spooler &gt; Properties &gt; Startup type: Disabled.</p>
+<p><strong>Confirm:</strong> <code>Get-CimInstance Win32_Service -Filter &quot;Name=&#x27;Spooler&#x27;&quot; | Select-Object StartMode</code> reports <code>Disabled</code>. If the authority ever truly needs to print, re-enable it that day -- deliberately, not by default.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-dispatch_creds_removed">
+        <h3>EASY: The leftover credentials file under C:\HarborlineData\scripts is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\HarborlineData\scripts\dispatch_creds.txt</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\HarborlineData\scripts\dispatch_creds.txt</code></p>
+        <div class="wt-body">
+<p><strong>1. Read it first</strong> -- evidence before deletion:</p>
+<pre><code>Get-Content C:\HarborlineData\scripts\dispatch_creds.txt
+# dispatch gateway creds (KEEP PRIVATE)
+user: sysadmin
+password: ...</code></pre>
+<p>The box&#x27;s admin password, written to disk for anyone to read -- planted or lazily left behind, it hands every local process the keys.</p>
+<p><strong>2. Delete the file:</strong></p>
+<pre><code>Remove-Item C:\HarborlineData\scripts\dispatch_creds.txt -Force</code></pre>
+<p><strong>3. Confirm.</strong> <code>Test-Path C:\HarborlineData\scripts\dispatch_creds.txt</code> is False -- and rotate the exposed password everywhere it might be reused.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-unattend_leftover_removed">
+        <h3>EASY: The setup leftover carrying an account password is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\Windows\Panther\unattend.xml</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\Windows\Panther\unattend.xml</code></p>
+        <div class="wt-body">
+<p><strong>1. Read it first.</strong> Windows keeps its setup answer files after installation -- and this one still holds a plaintext password:</p>
+<pre><code>Get-Content C:\Windows\Panther\unattend.xml
+... &lt;Password&gt;&lt;Value&gt;...&lt;/Value&gt;&lt;PlainText&gt;true&lt;/PlainText&gt;&lt;/Password&gt; ...</code></pre>
+<p>Unattend leftovers are a classic find: the install-time password outlives the install and often still works.</p>
+<p><strong>2. Delete the file</strong> (setup never needs it again):</p>
+<pre><code>Remove-Item C:\Windows\Panther\unattend.xml -Force</code></pre>
+<p><strong>3. Confirm.</strong> <code>Test-Path C:\Windows\Panther\unattend.xml</code> is False -- and rotate whatever password it held.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-stale_computer_disabled">
+        <h3>EASY: The decommissioned workstation's computer account is disabled <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find the orphan.</strong> An enabled computer account whose machine left the building three years ago is a free join point for anything that can prove its old identity:</p>
+<pre><code>Get-ADComputer -Filter &#x27;Name -eq &quot;WS-OLD2301&quot;&#x27; -Properties Description, Enabled
+Decommissioned fare-gate test rig (2023)</code></pre>
+<p><strong>2. Disable it:</strong></p>
+<pre><code>Disable-ADAccount -Identity &#x27;WS-OLD2301$&#x27;</code></pre>
+<p>GUI route: ADUC &gt; Computers &gt; WS-OLD2301 &gt; Properties &gt; tick &quot;Account is disabled&quot;. (Deleting stale objects is the real cleanup, but disable-then-delete-on-a-schedule is the safe order -- and the scored state here is disabled, not gone.)</p>
+<p><strong>3. Confirm.</strong> <code>Enabled : False</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-runkey_pulse_payload_gone">
+        <h3>EASY: The Run-key payload script under C:\ProgramData\Subsystems is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\ProgramData\Subsystems\fleetpulse.ps1</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\ProgramData\Subsystems\fleetpulse.ps1</code></p>
+        <div class="wt-body">
+<p><strong>1. Read the payload</strong> (with the Run-key entries already deleted, no logon will relaunch it):</p>
+<pre><code>Get-Content C:\ProgramData\Subsystems\fleetpulse.ps1
+while ($true) { Start-Sleep -Seconds 300 }</code></pre>
+<p>A placeholder loop -- the entry was the persistence, the script the slot.</p>
+<p><strong>2. Delete it:</strong></p>
+<pre><code>Remove-Item C:\ProgramData\Subsystems\fleetpulse.ps1 -Force</code></pre>
+<p><strong>3. Confirm.</strong> <code>Test-Path C:\ProgramData\Subsystems\fleetpulse.ps1</code> is False. The other Subsystems payloads have their own tasks -- once all are gone, remove the directory itself.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-runkey_widget_payload_gone">
+        <h3>EASY: The second Run-key payload script is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\ProgramData\Subsystems\statuswidget.ps1</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\ProgramData\Subsystems\statuswidget.ps1</code></p>
+        <div class="wt-body">
+<p><strong>1. Delete the script</strong> (with its Run-key entry already gone, nothing relaunches it):</p>
+<pre><code>Remove-Item C:\ProgramData\Subsystems\statuswidget.ps1 -Force</code></pre>
+<p><strong>2. Confirm.</strong> <code>Test-Path C:\ProgramData\Subsystems\statuswidget.ps1</code> is False.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-task_payload_removed">
+        <h3>EASY: The scheduled task's payload script is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\ProgramData\Subsystems\chromeupdate.ps1</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\ProgramData\Subsystems\chromeupdate.ps1</code></p>
+        <div class="wt-body">
+<p><strong>1. Read what the task was running</strong> (after unregistering it, so nothing executes it again):</p>
+<pre><code>Get-Content C:\ProgramData\Subsystems\chromeupdate.ps1
+Start-Sleep -Seconds 5</code></pre>
+<p>Another placeholder -- the task was the persistence, the script the slot.</p>
+<p><strong>2. Delete it:</strong></p>
+<pre><code>Remove-Item C:\ProgramData\Subsystems\chromeupdate.ps1 -Force</code></pre>
+<p><strong>3. Confirm.</strong> <code>Test-Path C:\ProgramData\Subsystems\chromeupdate.ps1</code> is False.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-task2_payload_removed">
+        <h3>EASY: The second task's payload script is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\ProgramData\Subsystems\officetelemetry.ps1</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\ProgramData\Subsystems\officetelemetry.ps1</code></p>
+        <div class="wt-body">
+<p><strong>1. Delete the script</strong> (with its task already unregistered, nothing executes it again):</p>
+<pre><code>Remove-Item C:\ProgramData\Subsystems\officetelemetry.ps1 -Force</code></pre>
+<p><strong>2. Confirm.</strong> <code>Test-Path C:\ProgramData\Subsystems\officetelemetry.ps1</code> is False.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-ifeo_sethc_clean">
+        <h3>EASY: The accessibility executable's Debugger hijack is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Check the accessibility backdoor.</strong> When Sticky Keys is triggered at the logon screen, Windows launches sethc.exe -- UNAUTHENTICATED. An Image File Execution Options &quot;Debugger&quot; value redirects that launch to the attacker&#x27;s command instead:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&quot; /v Debugger
+    Debugger    REG_SZ    powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File &quot;C:\ProgramData\Subsystems\stickywatch.ps1&quot;</code></pre>
+<p>Five presses of Shift at the logon screen now run the attacker&#x27;s script -- before anyone logs in.</p>
+<p><strong>2. Delete the Debugger value:</strong></p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&quot; /v Debugger /f</code></pre>
+<p><strong>3. Confirm.</strong> The reg query errors &quot;unable to find ... value&quot;. (The sibling accessibility executable -- the Utility Manager -- has its own task.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-ifeo_utilman_clean">
+        <h3>EASY: The Utility Manager's Debugger hijack is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p>The second accessibility hijack: Utility Manager (Win+U at the logon screen) launches utilman.exe the same unauthenticated way, and it carries the same Debugger redirect (full walkthrough in the Sticky Keys task):</p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\utilman.exe&quot; /v Debugger /f</code></pre>
+<p><strong>Confirm:</strong> the reg query errors &quot;unable to find ... value&quot;. Sweep BOTH accessibility executables -- a cleanup that fixes one and not the other leaves the door open.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-wmi_payload_gone">
+        <h3>EASY: The WMI consumer's payload script is removed <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\ProgramData\Subsystems\wmihealth.ps1</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\ProgramData\Subsystems\wmihealth.ps1</code></p>
+        <div class="wt-body">
+<p><strong>1. Delete the payload</strong> (with the subscription triple removed, nothing executes it again):</p>
+<pre><code>Remove-Item C:\ProgramData\Subsystems\wmihealth.ps1 -Force</code></pre>
+<p><strong>2. Confirm.</strong> <code>Test-Path C:\ProgramData\Subsystems\wmihealth.ps1</code> is False.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-w32time_running">
+        <h3>EASY: The Windows Time service is running (the DC is the domain's time source) <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>W32Time</code> must be running &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>W32Time</code></p>
+        <div class="wt-body">
+<p>This one scores while the service is UP. Windows Time is the domain&#x27;s heartbeat -- Kerberos tickets live and die by clock skew, and a DC whose time drifts breaks authentication for the whole forest. Nothing is wrong with it; the check just refuses to award a cleanup that broke it:</p>
+<pre><code>Get-Service W32Time        # Running</code></pre>
+<p>If it shows Stopped (it should not, unless something you changed stopped it), start it again:</p>
+<pre><code>Start-Service W32Time</code></pre>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-kdc_running">
+        <h3>EASY: The Kerberos Key Distribution Center service is running <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>Kdc</code> must be running &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>Kdc</code></p>
+        <div class="wt-body">
+<p>This one scores while the service is UP. The KDC is the service that issues every Kerberos ticket in the domain -- stop it and nobody authenticates to anything:</p>
+<pre><code>Get-Service Kdc        # Running</code></pre>
+<p>If it shows Stopped, you have found why the domain feels broken -- start it:</p>
+<pre><code>Start-Service Kdc</code></pre>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-netlogon_running">
+        <h3>EASY: The Netlogon service is running (domain secure-channel machinery) <span class="wt-pts">2 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>Netlogon</code> must be running &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>Netlogon</code></p>
+        <div class="wt-body">
+<p>This one scores while the service is UP. Netlogon is the secure-channel machinery every domain logon and trust path rides on:</p>
+<pre><code>Get-Service Netlogon        # Running</code></pre>
+<p>If it shows Stopped, domain logons break -- start it:</p>
+<pre><code>Start-Service Netlogon</code></pre>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-domain_admins_subset">
+        <h3>MODERATE: Only the authorized administrator sits in Domain Admins <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Audit the group.</strong> Domain Admins is the most powerful group in the forest -- every seat in it is a kingdom key:</p>
+<pre><code>Get-ADGroupMember &#x27;Domain Admins&#x27; | Select-Object SamAccountName, Name
+Administrator      (built-in)
+sysadmin           Harborline IT
+&lt;one extra member&gt;  Field contractor</code></pre>
+<p>The roster calls for exactly one human administrator: <code>sysadmin</code> (the built-in Administrator is tolerated). Anyone else is a plant or a mistake.</p>
+<p><strong>2. Trim to the roster</strong> -- this strips their power without touching the accounts themselves (they are handled by their own tasks):</p>
+<pre><code>Remove-ADGroupMember &#x27;Domain Admins&#x27; -Members &lt;the stray member&gt;</code></pre>
+<p>GUI route: Active Directory Users and Computers &gt; Builtin (or Users) &gt; Domain Admins &gt; Members tab &gt; select &gt; Remove.</p>
+<p><strong>3. Confirm.</strong> The Get-ADGroupMember list shows only Administrator and sysadmin.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-operators_groups_clean">
+        <h3>MODERATE: The built-in operator groups have no unauthorized members <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Audit the operator groups.</strong> The built-in operator groups are one rung below Domain Admins -- Account Operators can create and manage users, Server Operators own services, Backup Operators can read anything on disk (and get DCSync-adjacent rights):</p>
+<pre><code>&#x27;Account Operators&#x27;, &#x27;Server Operators&#x27;, &#x27;Backup Operators&#x27;,
+  &#x27;Print Operators&#x27; | ForEach-Object {
+    Get-ADGroupMember $_ | Select-Object @{n=&#x27;Group&#x27;;e={$args[0]}}, SamAccountName }</code></pre>
+<p>(or check each in ADUC&#x27;s Builtin container). One account sits in one of them that the roster does not explain.</p>
+<p><strong>2. Remove every member</strong> of all four groups -- on a single-DC shop like this nobody needs standing operator rights:</p>
+<pre><code>Remove-ADGroupMember &#x27;Account Operators&#x27; -Members &lt;the member&gt;</code></pre>
+<p><strong>3. Confirm.</strong> The sweep across the four groups prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-no_password_not_required">
+        <h3>MODERATE: No enabled account accepts a blank password <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Sweep for the flag</strong> (the same sweep the check runs -- do it BEFORE you fix the account; a fixed or disabled account stops matching, and what you find is also a forensics answer):</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; -Properties PasswordNotRequired |
+  Where-Object { $_.PasswordNotRequired } |
+  Select-Object SamAccountName, Description
+&lt;one account&gt;   &lt;a kiosk-flavored description&gt;</code></pre>
+<p>An enabled account with &quot;Password not required&quot; accepts an EMPTY password -- anyone at any logon prompt is in.</p>
+<p><strong>2. Fix it</strong> -- set a password and clear the flag; keep the account (the kiosk integration points at it):</p>
+<pre><code>Set-ADAccountPassword -Identity &lt;the account&gt; -Reset `
+  -NewPassword (ConvertTo-SecureString -AsPlainText &#x27;&lt;long random&gt;&#x27; -Force)
+Set-ADAccountControl -Identity &lt;the account&gt; -PasswordNotRequired $false</code></pre>
+<p>Disabling the account also satisfies the check -- but the better fix keeps the service working with a real password.</p>
+<p><strong>3. Confirm.</strong> The sweep prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-no_hidden_dollar_account">
+        <h3>MODERATE: No account is hiding behind a dollar-suffix name <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Sweep for the costume</strong> (do it before you disable anything -- the name you find is a forensics answer):</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; |
+  Where-Object { $_.SamAccountName -like &#x27;*$&#x27; } |
+  Select-Object SamAccountName, Description</code></pre>
+<p>Every COMPUTER account ends in <code>$</code> -- so does one thing in the USER listing that has no machine behind it. Attackers add the suffix so a rogue account hides in the computer noise of <code>net user /domain</code> output.</p>
+<p><strong>2. Disable it -- do NOT delete it</strong> (the account is the evidence):</p>
+<pre><code>Disable-ADAccount -Identity &lt;the account&gt;</code></pre>
+<p><strong>3. Confirm.</strong> The sweep prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-never_expires_clean">
+        <h3>MODERATE: No ordinary enabled account is set to never expire its password <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Sweep every enabled account</strong> (the same query the check runs, krbtgt excluded):</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; -Properties PasswordNeverExpires |
+  Where-Object { $_.PasswordNeverExpires -and $_.SamAccountName -ne &#x27;krbtgt&#x27; } |
+  Select-Object SamAccountName</code></pre>
+<p>More than one account comes back. &quot;Never expires&quot; turns any weak password those accounts hold into a permanent weak password.</p>
+<p><strong>2. Clear the flag</strong> on every name the sweep prints:</p>
+<pre><code>Set-ADUser -Identity &lt;the account&gt; -PasswordNeverExpires $false</code></pre>
+<p>GUI route: ADUC &gt; user &gt; Properties &gt; Account tab &gt; untick &quot;Password never expires&quot;.</p>
+<p><strong>3. Confirm.</strong> The sweep now prints nothing (krbtgt stays as the designed exception -- leave it alone).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-password_minlen">
+        <h3>MODERATE: Minimum password length is at least 8 characters <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the policy.</strong> On a domain controller this IS the domain policy -- the same one every member server inherits:</p>
+<pre><code>net accounts
+Minimum password length:     4</code></pre>
+<p>Four characters with complexity switched off is a guessing game.</p>
+<p><strong>2. Raise it</strong> -- the workshop way is the Default Domain Policy, so the fix survives a policy refresh:</p>
+<pre><code>gpmc.msc &gt; Forest: harborline.local &gt; Domains &gt; harborline.local &gt;
+  Default Domain Policy &gt; Edit &gt;
+  Computer Configuration &gt; Policies &gt; Windows Settings &gt;
+  Security Settings &gt; Account Policies &gt; Password Policy &gt;
+  Minimum password length = 12</code></pre>
+<p>The quick route also scores: <code>net accounts /minpwlen:12</code>.</p>
+<p><strong>3. Confirm.</strong> <code>net accounts</code> (run on the DC) shows the new minimum. <code>gpupdate /force</code> applies the GPO route immediately. One trap: the quick <code>net accounts</code> route can be silently reverted when a Default Domain Policy refresh re-asserts the GPO&#x27;s values (your score would drop again later) -- if that happens, set it in the Default Domain Policy GPO, where it sticks.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-password_max_age">
+        <h3>MODERATE: Passwords are forced to expire within 90 days <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the policy.</strong></p>
+<pre><code>net accounts
+Maximum password age:        Unlimited</code></pre>
+<p>&quot;Unlimited&quot; means a password set today is good forever -- the whole point of expiry is retiring credentials nobody remembers choosing.</p>
+<p><strong>2. Cap it</strong> -- 90 scores; the Default Domain Policy route (Password Policy &gt; Maximum password age) is the one that sticks:</p>
+<pre><code>net accounts /maxpwage:90</code></pre>
+<p><strong>3. Confirm.</strong> <code>net accounts</code> shows 90 (or less). Same caveat as the minimum-length task: if the score drops again later, a policy refresh reverted the quick route -- set it in the GPO instead.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-audit_logon_on">
+        <h3>MODERATE: Logon auditing records both success and failure <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. See what is being ignored.</strong></p>
+<pre><code>auditpol /get /subcategory:&quot;Logon&quot;
+Logon                        No Auditing</code></pre>
+<p>On a DC, logon auditing is your record of every pass-the-hash, spray run, and service logon in the domain -- switched off, you would investigate yesterday&#x27;s breach with today&#x27;s silence.</p>
+<p><strong>2. Turn on both directions</strong> -- successes AND failures:</p>
+<pre><code>auditpol /set /subcategory:&quot;Logon&quot; /success:enable /failure:enable</code></pre>
+<p>The GPO route: Default Domain Controllers Policy &gt; Computer Configuration &gt; Policies &gt; Windows Settings &gt; Security Settings &gt; Advanced Audit Policy Configuration &gt; Logon/Logoff &gt; Audit Logon &gt; Success and Failure.</p>
+<p><strong>3. Confirm.</strong> <code>auditpol /get /subcategory:&quot;Logon&quot;</code> lists Success and Failure both enabled.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-rdp_nla">
+        <h3>MODERATE: Remote Desktop requires Network Level Authentication <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. See the state.</strong> The RDP listener accepts clients that have proven nothing yet:</p>
+<pre><code>reg query &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v UserAuthentication
+    UserAuthentication    REG_DWORD    0x0</code></pre>
+<p>Without Network Level Authentication every connection gets the full logon handshake -- free pre-auth attack surface on the box that holds the whole domain. (RDP itself stays ON -- the box is managed over it; the missing pre-auth requirement is the finding.)</p>
+<p><strong>2. Require NLA:</strong></p>
+<pre><code>reg add &quot;HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp&quot; /v UserAuthentication /t REG_DWORD /d 1 /f</code></pre>
+<p>GUI route: System Properties &gt; Remote &gt; tick &quot;Allow connections only from computers running Remote Desktop with Network Level Authentication&quot; -- it writes this same value.</p>
+<p><strong>3. Confirm.</strong> The reg query reads 0x1.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-no_autologin">
+        <h3>MODERATE: Automatic logon is disabled <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Look inside Winlogon.</strong> Autologon turns every boot into a signed-in console session for whoever the registry names -- zero credentials, physical access wins (and on a DC, that console session is the domain&#x27;s keys):</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot;
+    AutoAdminLogon    REG_SZ    1
+    DefaultUserName   REG_SZ    kiosk-dispatch
+    DefaultPassword   REG_SZ    KioskDispatch1!</code></pre>
+<p><strong>2. DELETE the AutoAdminLogon value</strong> -- do not merely set it to</p>
+<ol>
+<li>The scored state is ABSENT: a leftover <code>AutoAdminLogon=0</code> is</li>
+</ol>
+<p>still present and still fails.</p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v AutoAdminLogon /f</code></pre>
+<p><strong>3. Confirm.</strong> The reg query errors with &quot;unable to find the specified registry key or value&quot;. The stored DefaultPassword beside it is its own task -- clear both.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-smb1_disabled">
+        <h3>MODERATE: The deprecated SMB1 protocol is disabled on the SMB server <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Check the server side.</strong> SMB1 is the protocol of the WannaCry-era worms; nothing modern on a domain controller speaks it:</p>
+<pre><code>Get-ItemProperty &#x27;HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&#x27; -Name SMB1
+    SMB1 : 1</code></pre>
+<p><strong>2. Switch it off</strong> with the supported toggle:</p>
+<pre><code>Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force</code></pre>
+<p><strong>3. Confirm the way the check does</strong> -- the registry value is the ground truth, and on some images the SMB WMI view mirrors it late. Re-run the Get-ItemProperty above; if it still reads 1, write the value directly:</p>
+<pre><code>reg add &quot;HKLM\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters&quot; /v SMB1 /t REG_DWORD /d 0 /f</code></pre>
+<p>Anything but 1 -- a 0, or the value gone -- is the scored state.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-anonymous_enum_restricted">
+        <h3>MODERATE: Anonymous users cannot enumerate accounts and shares <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read both switches.</strong> Two sibling values govern what an anonymous (unauthenticated) session may list:</p>
+<pre><code>reg query &quot;HKLM\SYSTEM\CurrentControlSet\Control\Lsa&quot; /v RestrictAnonymous
+reg query &quot;HKLM\SYSTEM\CurrentControlSet\Control\Lsa&quot; /v RestrictAnonymousSAM</code></pre>
+<p>Both at 0 means anyone who can reach the box -- no credentials -- can walk away with the user list and the share list.</p>
+<p><strong>2. Set both to 1</strong> -- via Local Security Policy so a policy refresh cannot revert a bare registry write:</p>
+<pre><code>secpol.msc &gt; Local Policies &gt; Security Options &gt;
+  &quot;Network access: Do not allow anonymous enumeration of SAM accounts&quot; &gt; Enabled
+  &quot;Network access: Do not allow anonymous enumeration of SAM accounts and shares&quot; &gt; Enabled</code></pre>
+<p>(Bare <code>reg add</code> for both values also scores.)</p>
+<p><strong>3. Confirm.</strong> Both reg queries read 0x1.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-share_encrypted_or_removed">
+        <h3>MODERATE: The operations share encrypts its SMB traffic (or is gone) <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Ask how the share travels.</strong> The access task next door fixes WHO can touch the operations share; this one fixes the WIRE:</p>
+<pre><code>Get-SmbShare TransitData | Select-Object Name, EncryptData
+TransitData  False</code></pre>
+<p>Unencrypted SMB is readable by anyone positioned on the path.</p>
+<p><strong>2. Turn on encryption:</strong></p>
+<pre><code>Set-SmbShare -Name TransitData -EncryptData $true -Force</code></pre>
+<p>(Removing the share entirely also satisfies this check -- but a transit authority still needs its operations share; encryption is the better ending.)</p>
+<p><strong>3. Confirm.</strong> The Get-SmbShare line reads True.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-ps2_legacy_engine_removed">
+        <h3>MODERATE: The legacy PowerShell 2.0 script engine is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Notice the default.</strong> Nothing was planted -- the PowerShell 2.0 engine ships installed-and-enabled on this image. That is the finding: version 2 is a 2009-era engine with no AMSI, no script-block logging, and no transcript support, so any script an attacker launches with <code>-Version 2</code> bypasses every newer defense on the box:</p>
+<pre><code>Get-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2
+State : Enabled</code></pre>
+<p><strong>2. Remove the engine:</strong></p>
+<pre><code>Disable-WindowsOptionalFeature -Online -FeatureName MicrosoftWindowsPowerShellV2 -NoRestart</code></pre>
+<p>Modern PowerShell 5.1/7 remains -- 2.0 is only the downgrade door. A pending reboot is fine; the state flips immediately.</p>
+<p><strong>3. Confirm.</strong> The Get-WindowsOptionalFeature query reports Disabled (or the feature is gone).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-defender_exclusions_clean">
+        <h3>MODERATE: Defender has no scan exclusions pointing at attacker territory <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the exclusion list</strong> (the same query the check runs -- note WHERE it points before you clear it; that path is where the rest of the incident lives):</p>
+<pre><code>Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
+C:\ProgramData\Subsystems</code></pre>
+<p>A folder-level exclusion is a standing &quot;never scan here&quot; sign -- and this one covers every payload on the box.</p>
+<p><strong>2. Remove every exclusion:</strong></p>
+<pre><code>Remove-MpPreference -ExclusionPath &#x27;C:\ProgramData\Subsystems&#x27;</code></pre>
+<p>(repeat for any other path or process the list shows).</p>
+<p><strong>3. Confirm.</strong> The ExclusionPath/ExclusionProcess queries print nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-ps_scriptblock_logging_on">
+        <h3>MODERATE: PowerShell script-block logging is enabled <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the switch.</strong> Script-block logging is the flight recorder for PowerShell: every script the engine compiles -- including ones handed to it in memory -- lands in the operational event log:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging&quot; /v EnableScriptBlockLogging
+    EnableScriptBlockLogging    REG_DWORD    0x0</code></pre>
+<p>Attacker tooling on Windows is PowerShell; with logging off, it ran in the dark.</p>
+<p><strong>2. Turn it on:</strong></p>
+<pre><code>reg add &quot;HKLM\SOFTWARE\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging&quot; /v EnableScriptBlockLogging /t REG_DWORD /d 1 /f</code></pre>
+<p>(GPO route: Administrative Templates &gt; Windows Components &gt; Windows PowerShell &gt; Turn on PowerShell Script Block Logging.)</p>
+<p><strong>3. Confirm.</strong> The reg query reads 0x1.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fleetsync_process_killed">
+        <h3>MODERATE: The fleet-telemetry payload process is terminated <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> no process whose command line matches <code>fleetsync</code> may be running &nbsp;&middot;&nbsp; <strong>Scored on:</strong> process list (pattern <code>fleetsync</code>)</p>
+        <div class="wt-body">
+<p><strong>1. Find the payload process.</strong> &quot;Harborline nightly fleet telemetry indexer&quot; sounds like part of the authority -- but nobody authorized it, and behind the service is a hidden PowerShell script in an attacker-made directory:</p>
+<pre><code>Get-CimInstance Win32_Process |
+  Where-Object CommandLine -match fleetsync |
+  Select-Object ProcessId, CommandLine</code></pre>
+<p><strong>2. Stop it the right way.</strong> Killing the powershell process alone gets you one round -- the service&#x27;s failure-recovery action respawns it. Take away the launcher:</p>
+<pre><code>Stop-Service HarborlineFleetSync -Force</code></pre>
+<p><strong>3. Confirm.</strong> The Win32_Process sweep above prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fleetsync_stopped">
+        <h3>MODERATE: The fleet-telemetry service is stopped <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>HarborlineFleetSync</code> must be stopped (not running now) &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>HarborlineFleetSync</code></p>
+        <div class="wt-body">
+<p>The payload process dies with the service -- this and the process-termination task are one Stop away from each other:</p>
+<pre><code>Stop-Service HarborlineFleetSync -Force</code></pre>
+<p>services.msc &gt; HarborlineFleetSync &gt; Stop. Confirm with <code>Get-Service HarborlineFleetSync</code> (Stopped) -- then see the disable task, because the service still comes back at boot.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-regboost_stopped">
+        <h3>MODERATE: The 'optimizer' service is stopped <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>RegBoostSvc</code> must be stopped (not running now) &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>RegBoostSvc</code></p>
+        <div class="wt-body">
+<p>One command, already done if you arrived via the payload task:</p>
+<pre><code>Stop-Service RegBoostSvc -Force</code></pre>
+<p>(services.msc &gt; RegBoostSvc &gt; Stop.)</p>
+<p><strong>Confirm:</strong> <code>Get-Service RegBoostSvc</code> reports <code>Status : Stopped</code>. Then give the name its due: a service that introduces itself as an optimizer nobody installed is a gift -- close all three of its scored states (running, stopped, disabled).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-regboost_disabled">
+        <h3>MODERATE: The 'optimizer' service is disabled at startup <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>RegBoostSvc</code> must be disabled (won't start at boot) &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>RegBoostSvc</code></p>
+        <div class="wt-body">
+<p>Finish the job so the &quot;optimizer&quot; never boots again:</p>
+<pre><code>Set-Service RegBoostSvc -StartupType Disabled</code></pre>
+<p>GUI route: services.msc &gt; RegBoostSvc &gt; Properties &gt; Startup type: Disabled.</p>
+<p><strong>Confirm:</strong> <code>Get-CimInstance Win32_Service -Filter &quot;Name=&#x27;RegBoostSvc&#x27;&quot; | Select-Object StartMode</code> reports <code>Disabled</code>. Beyond scoring: delete C:\ProgramData\Subsystems\regboost.ps1 and the compiled wrapper beside it -- and when the last Subsystems payload is gone, remove the directory.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-transit_share_restricted">
+        <h3>MODERATE: The operations share no longer grants Everyone access <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Inspect the share.</strong></p>
+<pre><code>Get-SmbShareAccess -Name TransitData
+TransitData   Everyone   Allow   Full</code></pre>
+<p>The operations share hands all of C:\HarborlineData -- payroll included -- to the entire world. The per-file ACL fix counts for little while the share keeps re-exposing the folder over SMB.</p>
+<p><strong>2. Revoke Everyone</strong>, then grant only who needs it:</p>
+<pre><code>Revoke-SmbShareAccess -Name TransitData -AccountName Everyone -Force
+Grant-SmbShareAccess -Name TransitData -AccountName &quot;Authenticated Users&quot; -AccessRight Change -Force</code></pre>
+<p>GUI route: folder Properties &gt; Sharing &gt; Advanced Sharing &gt; Permissions. (Removing the share outright also satisfies the check, and the share-encryption task next door is satisfied by removal too -- but a properly locked, encrypted share is the better ending.)</p>
+<p><strong>3. Confirm.</strong> <code>Get-SmbShareAccess -Name TransitData</code> shows no Everyone Allow row.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-payroll_acl_restricted">
+        <h3>MODERATE: The payroll export is no longer writable by Everyone <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the ACL.</strong></p>
+<pre><code>icacls C:\HarborlineData\payroll-export.csv
+Everyone:(F)</code></pre>
+<p>Full Control for Everyone on a payroll export -- anyone who can touch the box (or the TransitData share, its own task) can rewrite or empty it.</p>
+<p><strong>2. Remove the Everyone grant -- in place.</strong> The file itself must stay (the penalty check guards it):</p>
+<pre><code>icacls C:\HarborlineData\payroll-export.csv /remove:g Everyone</code></pre>
+<p>GUI route: file Properties &gt; Security &gt; select Everyone &gt; Remove. If the strip removes too much, re-grant real access: <code>icacls &lt;file&gt; /grant &quot;Administrators:F&quot;</code> -- or restore inheritance with <code>icacls &lt;file&gt; /inheritance:e</code>.</p>
+<p><strong>3. Confirm.</strong> The icacls output lists no Everyone entry.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-hosts_redirect_removed">
+        <h3>MODERATE: The hosts-file redirect to the fake payroll portal is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the flagged pattern in <code>C:\Windows\System32\drivers\etc\hosts</code> must no longer match anything &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\Windows\System32\drivers\etc\hosts</code></p>
+        <div class="wt-body">
+<p><strong>1. Read the hosts file</strong> -- its entries outrank DNS for every process on the box:</p>
+<pre><code>Get-Content C:\Windows\System32\drivers\etc\hosts
+# Harborline fast-route
+10.44.9.9    payroll.harborline.example</code></pre>
+<p>The authority&#x27;s own payroll portal name, silently steered to an IP nobody assigned -- staff typing the normal URL land on the wrong host, and hand it their credentials.</p>
+<p><strong>2. Note the redirected hostname, then delete only that line</strong> (and its planted comment). Leave the stock comments and localhost entries alone:</p>
+<pre><code>notepad C:\Windows\System32\drivers\etc\hosts</code></pre>
+<p>(Elevated notepad. PowerShell route: Get-Content, filter the line out with <code>Where-Object { $_ -notmatch &#x27;payroll\.harborline&#x27; }</code>, Set-Content back.)</p>
+<p><strong>3. Confirm.</strong> <code>Select-String payroll.harborline.example C:\Windows\System32\drivers\etc\hosts</code> prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-preauth_required">
+        <h3>MODERATE: No account is left with Kerberos preauthentication disabled <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Sweep for the misconfiguration</strong> -- the same sweep the check runs (do it BEFORE you disable or fix the account; a fixed or disabled account stops matching, and what you find is a forensics answer):</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; -Properties DoesNotRequirePreauth |
+  Where-Object { $_.DoesNotRequirePreauth } |
+  Select-Object SamAccountName, Description
+&lt;one account&gt;   &lt;a fare-gate flavored description&gt;</code></pre>
+<p>With preauthentication off, anyone can ask the DC for that account&#x27;s AS-REP and crack it offline -- no password needed up front (AS-REP roasting).</p>
+<p><strong>2. Re-enable preauthentication</strong> -- keep the account (the fare gates poll through it; the fix is the flag, not the guillotine):</p>
+<pre><code>Set-ADAccountControl -Identity &lt;the account&gt; -DoesNotRequirePreAuth $false</code></pre>
+<p>GUI route: ADUC &gt; user &gt; Properties &gt; Account tab &gt; untick &quot;Do not require Kerberos preauthentication&quot;.</p>
+<p><strong>3. Confirm.</strong> The sweep prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-gpp_cpassword_purged">
+        <h3>MODERATE: No Group Policy Preferences file under SYSVOL hides an encrypted password <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Sweep SYSVOL the way the check does</strong> (record what you find first -- one of the values inside is a forensics answer):</p>
+<pre><code>Get-ChildItem C:\Windows\SYSVOL\domain\Policies -Recurse -Filter Groups.xml |
+  Select-String -Pattern &#x27;cpassword&#x27; -List</code></pre>
+<p>One Groups.xml under a GPO&#x27;s Machine\Preferences\Groups holds a cpassword attribute -- an AES blob whose key has been public since 2014. Decrypt it offline with gpp-decrypt and you have a local-admin password for every machine the GPO touches.</p>
+<p><strong>2. Remove it.</strong> The GPO itself is a leftover (&quot;Deploy Fare Kiosk&quot;) nobody should be deploying that way anymore -- delete the preference (the XML file) or the whole GPO:</p>
+<pre><code>Remove-GPO -Name &#x27;Deploy Fare Kiosk&#x27;</code></pre>
+<p>(or delete just the Groups.xml file under its SYSVOL path).</p>
+<p><strong>3. Confirm.</strong> The sweep prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-dnsadmins_member_removed">
+        <h3>MODERATE: The DNSAdmins group has no members <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. List the group.</strong> DNSAdmins looks like a harmless operations group -- its members can, through the DNS Server service&#x27;s own load point, run code as SYSTEM on the domain controller:</p>
+<pre><code>Get-ADGroupMember &#x27;DNSAdmins&#x27; | Select-Object SamAccountName</code></pre>
+<p><strong>2. Remove every member:</strong></p>
+<pre><code>Remove-ADGroupMember &#x27;DNSAdmins&#x27; -Members &lt;the member&gt;</code></pre>
+<p>GUI route: ADUC &gt; Builtin &gt; DNSAdmins &gt; Members tab &gt; Remove.</p>
+<p><strong>3. Confirm.</strong> <code>Get-ADGroupMember &#x27;DNSAdmins&#x27;</code> returns nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-firewall_profiles_on">
+        <h3>MODERATE: Windows Firewall is enabled on all profiles <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. See what is dark.</strong> Every profile off on the machine that holds every password hash in the domain:</p>
+<pre><code>Get-NetFirewallProfile | Select-Object Name, Enabled
+Domain   False
+Private  False
+Public   False</code></pre>
+<p><strong>2. Turn them all on:</strong></p>
+<pre><code>Set-NetFirewallProfile -All -Enabled True</code></pre>
+<p>The GPO route (the workshop way): Default Domain Controllers Policy &gt; Computer Configuration &gt; Policies &gt; Windows Settings &gt; Security Settings &gt; Windows Defender Firewall with Advanced Security &gt; set &quot;Firewall state&quot; to On in each profile.</p>
+<p><strong>3. Confirm.</strong> The Select-Object shows True three times -- and your own RDP and SSH sessions survive: both already carry their own inbound allow rules.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-backdoor_rule_removed">
+        <h3>MODERATE: The undocumented inbound firewall allow rule is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the ruleset with fresh eyes</strong> -- after re-enabling the firewall, look at what it was quietly allowing:</p>
+<pre><code>Get-NetFirewallRule -Enabled True -Direction Inbound |
+  Select-Object DisplayName, Profile |
+  Sort-Object DisplayName</code></pre>
+<p>One allow rule names no product and no admin owns it: an inbound door on a high port. Attackers leave these so a firewall being switched back on costs them nothing.</p>
+<p><strong>2. Delete the rule</strong> (disabling it would survive one click of a sibling&#x27;s re-enable -- removal is the scored state):</p>
+<pre><code>Remove-NetFirewallRule -Name &#x27;TransitSync&#x27;</code></pre>
+<p><strong>3. Confirm.</strong> <code>Get-NetFirewallRule -Name &#x27;TransitSync&#x27;</code> returns nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-runkey_pulse_removed">
+        <h3>MODERATE: A Run-key persistence entry launching a hidden payload is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the Run key</strong> -- everything under it launches at every interactive logon:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot;
+    FleetPulseCore       REG_SZ    powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File &quot;C:\ProgramData\Subsystems\fleetpulse.ps1&quot;
+    RelayStatusWidget    REG_SZ    powershell.exe -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File &quot;C:\ProgramData\Subsystems\statuswidget.ps1&quot;</code></pre>
+<p>Values named like fleet apps that start HIDDEN PowerShell scripts from an attacker-made directory are not fleet apps -- they are persistence. (And a GPO is pushing a third one onto every domain machine -- that is its own task in Group Policy.)</p>
+<p><strong>2. Note each value&#x27;s NAME, then delete them</strong> -- the names are forensics answers; record them before cleaning:</p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot; /v FleetPulseCore /f
+reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot; /v RelayStatusWidget /f</code></pre>
+<p><strong>3. Confirm.</strong> The reg query no longer lists either value. The scripts they launched have their own tasks.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-runkey_widget_removed">
+        <h3>MODERATE: The second Run-key persistence entry is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p>The second value under the same Run key -- attackers plant more than one so a cleanup that stops at the first is not a cleanup:</p>
+<pre><code>reg delete &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot; /v RelayStatusWidget /f</code></pre>
+<p>(Full walkthrough in the first Run-key task.) <strong>Confirm:</strong> the reg query no longer lists it, and its payload script C:\ProgramData\Subsystems\statuswidget.ps1 is deleted too.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-rogue_task_removed">
+        <h3>MODERATE: A rogue scheduled task running a payload from C:\ProgramData\Subsystems is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find the impostor.</strong> It sits in the Task Scheduler Library wearing a browser-updater costume -- but Chrome does not update from a SYSTEM script in C:\ProgramData:</p>
+<pre><code>Get-ScheduledTask -TaskName ChromeUpdateCore |
+  Select-Object -ExpandProperty Actions
+Execute   : powershell.exe
+Arguments : -NoProfile -NonInteractive -ExecutionPolicy Bypass -File &quot;C:\ProgramData\Subsystems\chromeupdate.ps1&quot;</code></pre>
+<p>(taskschd.msc &gt; Task Scheduler Library shows the same task -- a daily 03:10 run as SYSTEM with highest rights. Read its Actions tab. There is MORE THAN ONE impostor in the library; this one first.)</p>
+<p><strong>2. Note the exact task NAME, then delete it</strong> -- the name is a forensics answer:</p>
+<pre><code>Unregister-ScheduledTask -TaskName ChromeUpdateCore -Confirm:$false</code></pre>
+<p><strong>3. Confirm.</strong> <code>Get-ScheduledTask -TaskName &#x27;ChromeUpdateCore&#x27;</code> returns nothing -- the scored state is gone.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-rogue_task2_removed">
+        <h3>MODERATE: The second rogue scheduled task is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p>The second impostor in the Task Scheduler Library -- an office-telemetry costume on the same C:\ProgramData\Subsystems pattern (full walkthrough in the first task):</p>
+<pre><code>Unregister-ScheduledTask -TaskName OfficeTelemetryAgent -Confirm:$false</code></pre>
+<p><strong>Confirm:</strong> <code>Get-ScheduledTask -TaskName &#x27;OfficeTelemetryAgent&#x27;</code> returns nothing, and its payload officetelemetry.ps1 is deleted as well.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-winlogon_userinit_clean">
+        <h3>MODERATE: The Winlogon Userinit value launches nothing beyond the stock initializer <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the value.</strong> The Userinit value is the list of executables Windows runs for every user at logon -- the stock entry ends in a trailing comma and nothing after it:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v Userinit
+    Userinit    REG_SZ    C:\Windows\system32\userinit.exe, C:\ProgramData\Subsystems\winitupd.exe</code></pre>
+<p>Anything after that comma runs inside every sign-in, with the logging-in user&#x27;s rights -- an attacker&#x27;s program in the middle of every session.</p>
+<p><strong>2. Restore the stock value:</strong></p>
+<pre><code>reg add &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v Userinit /t REG_SZ /d &quot;C:\Windows\system32\userinit.exe,&quot; /f</code></pre>
+<p>(regedit works too -- replace the whole value with the stock string, trailing comma INCLUDED.)</p>
+<p><strong>3. Confirm.</strong> The reg query shows exactly the stock string -- and delete the payload exe it pointed at (C:\ProgramData\Subsystems\winitupd.exe).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-wmi_binding_removed">
+        <h3>MODERATE: The WMI event-subscription persistence is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Sweep the WMI graveyard.</strong> A stock Windows box ships exactly one FilterToConsumerBinding (SCM Event Log -- an event-log consumer, part of the OS). Anything that runs a COMMAND or a SCRIPT consumer is planted:</p>
+<pre><code>Get-CimInstance -Namespace root\subscription -ClassName __FilterToConsumerBinding |
+  Select-Object Filter, Consumer</code></pre>
+<p>One binding couples a filter (firing every 60 seconds) to a CommandLineEventConsumer running a hidden PowerShell payload -- persistence with no file on disk that autoruns knows about, no service, no scheduled task.</p>
+<p><strong>2. Remove the whole triple</strong> -- binding, consumer, and filter (removing only the binding leaves the other two armed):</p>
+<pre><code>$b = Get-CimInstance -Namespace root\subscription -ClassName __FilterToConsumerBinding |
+  Where-Object { $_.Consumer -match &#x27;CommandLineEventConsumer|ActiveScriptEventConsumer&#x27; }
+$b | Remove-CimInstance
+Get-CimInstance -Namespace root\subscription -ClassName CommandLineEventConsumer |
+  Remove-CimInstance
+Get-CimInstance -Namespace root\subscription -ClassName __EventFilter |
+  Where-Object Name -ne &#x27;SCM Event Log Filter&#x27; |
+  Remove-CimInstance</code></pre>
+<p>(If the CIM removal of the binding refuses, the classic API deletes it: <code>Get-WmiObject -Namespace root\subscription -Class __FilterToConsumerBinding | Where-Object { $_.Filter -like &#x27;*&lt;the filter name&gt;*&#x27; } | ForEach-Object { $_.Delete() }</code>.) Leave the stock SCM Event Log triple alone -- it is Windows&#x27; own.</p>
+<p><strong>3. Confirm.</strong> The binding sweep shows only the SCM Event Log entry. (The payload script the consumer ran has its own task.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-startup_item_removed">
+        <h3>MODERATE: The startup-folder item is removed <span class="wt-pts">4 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\dispatch-helper.bat</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\dispatch-helper.bat</code></p>
+        <div class="wt-body">
+<p><strong>1. Read the folder first.</strong> The All-Users StartUp folder runs its contents at every sign-in -- it predates every other persistence trick and still works:</p>
+<pre><code>Get-ChildItem &quot;$env:ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp&quot;
+dispatch-helper.bat</code></pre>
+<p><strong>2. Read what it runs, then delete it:</strong></p>
+<pre><code>Get-Content &quot;$env:ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\dispatch-helper.bat&quot;
+Remove-Item &quot;$env:ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\dispatch-helper.bat&quot; -Force</code></pre>
+<p>(It launches another hidden PowerShell payload from the Subsystems directory -- delete that script too.)</p>
+<p><strong>3. Confirm.</strong> The folder listing is empty.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-svc_sched_password_rotated">
+        <h3>HARD: The scheduling integration account's password has been rotated off its original <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. See the target.</strong> The account carries a service principal name -- any domain user can ask the DC for its service ticket and take the password hash home to crack offline (Kerberoasting). Its password is short, seasonal, and dictionary-shaped:</p>
+<pre><code>setspn -L svc_sched
+HTTP/har-dc01.harborline.local</code></pre>
+<p><strong>2. Rotate it</strong> -- long, random, and recorded wherever the integration&#x27;s config lives. Rotation beats every other mitigation because a cracked hash buys the attacker nothing:</p>
+<pre><code>Set-ADAccountPassword -Identity svc_sched -Reset `
+  -NewPassword (ConvertTo-SecureString -AsPlainText &#x27;J7#vQz2!mLpXw4tR&#x27; -Force)</code></pre>
+<p>Disabling or deleting the account is scorched earth: the check only scores while the account exists AND is enabled -- the scheduling integration needs it.</p>
+<p><strong>3. Confirm</strong> the old password is dead: a bind attempt with it is now refused. (Bonus, unscored here: if this were AES-protected the ticket would be harder to crack -- see the DES task for the inverse.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-password_lockout">
+        <h3>HARD: Account lockout threshold is at least 5 invalid attempts <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the policy.</strong></p>
+<pre><code>net accounts
+Lockout threshold:           Never</code></pre>
+<p>&quot;Never&quot; means unlimited password guesses -- the difference between a password spray hitting a wall and a password spray silently winning. (The regex reads the numeric field; this image prints the count here once a threshold is set.)</p>
+<p><strong>2. Set a threshold</strong> -- Default Domain Policy &gt; Account Policies &gt; Account Lockout Policy &gt; &quot;Account lockout threshold&quot; = 5 (duration 15 minutes, reset 15). The quick route also scores:</p>
+<pre><code>net accounts /lockoutthreshold:5 /lockoutduration:15 /lockoutwindow:15</code></pre>
+<p><strong>3. Confirm.</strong> <code>net accounts</code> shows Lockout threshold 5 instead of Never. This is HARD because the zero-state hides as &quot;Never&quot;, not as a small number -- read the whole policy, not one line. Same trap as the minimum-length task: a Default Domain Policy refresh can silently revert the quick <code>net accounts</code> route, so set it in the GPO if your score drops again later.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-ldap_signing_required">
+        <h3>HARD: The domain controller requires LDAP signing <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the requirement.</strong> With signing not required, NTLM authenticated LDAP traffic can be relayed and tampered in transit:</p>
+<pre><code>reg query &quot;HKLM\SYSTEM\CurrentControlSet\Services\NTDS\Parameters&quot; /v LDAPServerIntegrity
+    LDAPServerIntegrity    REG_DWORD    0x1        # 1 = None, 2 = Require</code></pre>
+<p><strong>2. Require signing -- through the policy store, not a bare registry write.</strong> On this image a background security-policy refresh re-asserts the stored policy and silently reverts a bare <code>reg add</code> (your score would come back minutes later). The fix that sticks is Local Security Policy:</p>
+<pre><code>secpol.msc &gt; Local Policies &gt; Security Options &gt;
+  &quot;Domain controller: LDAP server signing requirements&quot; &gt;
+  Require signing</code></pre>
+<p>Or the same thing via secedit (export, set <code>LDAPServerIntegrity = 2</code> under [Registry Values], configure). The GPO route (Default Domain Controllers Policy &gt; Security Options &gt; same setting) works too and follows the workshop teaching. A bare <code>reg add ... /d 2 /f</code> also scores -- but if the score drops again a few minutes later, that is the policy refresh reverting it; do it through the policy store instead.</p>
+<p><strong>3. Confirm.</strong> The reg query reads 0x2 and STAYS 0x2 after <code>gpupdate /force</code>. (This one is HARD because it is policy work in the NTDS key -- and it is the check the MS17-style scanners flag first on any domain.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-wdigest_cleartext_off">
+        <h3>HARD: WDigest no longer keeps a cleartext copy of every logon credential <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the setting.</strong> WDigest is an ancient protocol provider that cannot store hashes -- with this switch on, Windows keeps the PLAINTEXT password in memory for every logon since the switch flipped:</p>
+<pre><code>reg query &quot;HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest&quot; /v UseLogonCredential
+    UseLogonCredential    REG_DWORD    0x1</code></pre>
+<p>An admin-level attacker dumps LSASS once and walks away with typed passwords, not crackable blobs.</p>
+<p><strong>2. Switch it off</strong> (0, or delete the value -- both score):</p>
+<pre><code>reg delete &quot;HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest&quot; /v UseLogonCredential /f</code></pre>
+<p><strong>3. Confirm.</strong> The reg query no longer reports 0x1. Credentials already sitting in memory stay until each user signs out -- the fix stops NEW cleartext from accumulating, so pair it with signing out idle sessions.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-lsa_ppl_on">
+        <h3>HARD: LSA runs as a protected process (RunAsPPL = 1) <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the protection.</strong> LSA is the process that holds every logon session&#x27;s secrets. Without PPL, any process holding admin can open it like a text file:</p>
+<pre><code>reg query &quot;HKLM\SYSTEM\CurrentControlSet\Control\Lsa&quot; /v RunAsPPL
+    RunAsPPL    REG_DWORD    0x0</code></pre>
+<p><strong>2. Turn the protection on:</strong></p>
+<pre><code>reg add &quot;HKLM\SYSTEM\CurrentControlSet\Control\Lsa&quot; /v RunAsPPL /t REG_DWORD /d 1 /f</code></pre>
+<p><strong>3. Confirm.</strong> The reg query reads 0x1. The protection takes effect at the next boot -- the value is what scores, and the reboot is what makes it real. Pairs with the WDigest task: that one stops cleartext being WRITTEN, this one makes what is there harder to READ.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-lm_compat_ntlmv2_only">
+        <h3>HARD: The NTLM stack refuses legacy LM/NTLMv1 responses (level 5) <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the level.</strong></p>
+<pre><code>reg query &quot;HKLM\SYSTEM\CurrentControlSet\Control\Lsa&quot; /v LmCompatibilityLevel
+    LmCompatibilityLevel    REG_DWORD    0x0</code></pre>
+<p>Level 0 answers every authentication downgrade an attacker triggers -- LM and NTLMv1 hashes crack in minutes on a GPU.</p>
+<p><strong>2. Set level 5</strong> (send NTLMv2 only, refuse LM and NTLMv1) -- through the policy store so a refresh cannot silently revert a bare registry write:</p>
+<pre><code>secpol.msc &gt; Local Policies &gt; Security Options &gt;
+  &quot;Network security: LAN Manager authentication level&quot; &gt;
+  Send NTLMv2 response only. Refuse LM &amp; NTLM</code></pre>
+<p>(A bare <code>reg add ... /d 5 /f</code> also scores -- same caveat as the LDAP signing task.)</p>
+<p><strong>3. Confirm.</strong> The reg query reads 0x5 and stays there after <code>gpupdate /force</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fleetsync_disabled">
+        <h3>HARD: The fleet-telemetry service is disabled at startup <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>HarborlineFleetSync</code> must be disabled (won't start at boot) &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>HarborlineFleetSync</code></p>
+        <div class="wt-body">
+<p><strong>1. Retire the launcher.</strong> With the service stopped, take away its ability to start again -- at boot, or at a teammate&#x27;s well-meaning &quot;repair&quot;:</p>
+<pre><code>Set-Service HarborlineFleetSync -StartupType Disabled</code></pre>
+<p>GUI route: services.msc &gt; HarborlineFleetSync &gt; Properties &gt; Startup type: Disabled.</p>
+<p><strong>2. Confirm.</strong></p>
+<pre><code>Get-CimInstance Win32_Service -Filter &quot;Name=&#x27;HarborlineFleetSync&#x27;&quot; |
+  Select-Object StartMode
+Disabled</code></pre>
+<p><strong>3. Beyond scoring:</strong> delete the payload C:\ProgramData\Subsystems\fleetsync.ps1 and the compiled wrapper (Wrap<em>.exe / Wrap</em>.cs) beside it -- and once every Subsystems implant is gone, remove the directory itself.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-regboost_process_killed">
+        <h3>HARD: The payload process of the disguised 'optimizer' service is terminated <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> no process whose command line matches <code>regboost</code> may be running &nbsp;&middot;&nbsp; <strong>Scored on:</strong> process list (pattern <code>regboost</code>)</p>
+        <div class="wt-body">
+<p><strong>1. Find it.</strong> This one does not even pretend: the service list offers a &quot;System Optimizer&quot; -- the same costume malware wears on other boxes. Its payload is another hidden PowerShell script:</p>
+<pre><code>Get-CimInstance Win32_Process |
+  Where-Object CommandLine -match regboost |
+  Select-Object ProcessId, CommandLine</code></pre>
+<p><strong>2. Stop the service</strong> -- killing the powershell process alone lets the failure-recovery action respawn it:</p>
+<pre><code>Stop-Service RegBoostSvc -Force</code></pre>
+<p><strong>3. Confirm.</strong> The Win32_Process sweep above prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-faregw_delegation_cleared">
+        <h3>HARD: The fare-gateway computer trusted for unconstrained delegation has it removed <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Find the delegation.</strong> A computer (or user) object trusted for unconstrained delegation caches a copy of every credential that touches it -- compromise the fare gateway and you replay domain-admin tickets:</p>
+<pre><code>Get-ADComputer -Filter &#x27;TrustedForDelegation -eq $true&#x27; -Properties TrustedForDelegation</code></pre>
+<p><strong>2. Clear it</strong> -- the gateway needs no delegation for its job; keep the object (services are being rebuilt onto it), take away the trust:</p>
+<pre><code>Set-ADAccountControl -Identity &#x27;FAREGW01$&#x27; -TrustedForDelegation $false -TrustedToAuthForDelegation $false</code></pre>
+<p>GUI route: ADUC &gt; Computers &gt; FAREGW01 &gt; Properties &gt; Delegation &gt; &quot;Do not trust this computer for delegation&quot;.</p>
+<p><strong>3. Confirm.</strong> The sweep prints nothing (both flags false while FAREGW01 still exists).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-des_downgrade_cleared">
+        <h3>HARD: No account is restricted to legacy DES-only Kerberos encryption <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Sweep for the downgrade</strong> (before you fix anything -- a fixed account stops matching):</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; -Properties &#x27;msDS-SupportedEncryptionTypes&#x27; |
+  Where-Object { ($_.&#x27;msDS-SupportedEncryptionTypes&#x27; -band 1) -ne 0 } |
+  Select-Object SamAccountName</code></pre>
+<p>One account is pinned to DES-only (&quot;Use Kerberos DES encryption types for this account&quot;) -- 56-bit keys, crackable in minutes on a GPU; attackers force this downgrade where they can.</p>
+<p><strong>2. Lift the restriction</strong> so the account negotiates modern AES:</p>
+<pre><code>Set-ADUser -Identity &lt;the account&gt; -KerberosEncryptionType None</code></pre>
+<p>(None = clear the restriction and let AES negotiate. If the cmdlet rejects the value on this build, clear the attribute directly: the scored state is the DES bit gone.)</p>
+<p><strong>3. Confirm.</strong> The sweep prints nothing.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-dcsync_rights_revoked">
+        <h3>HARD: The account with directory-replication (DCSync) rights on the domain root has them revoked <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the domain root&#x27;s ACL.</strong> Two extended rights matter: DS-Replication-Get-Changes and DS-Replication-Get-Changes-All. Together they are DCSync -- the ability to ask the DC to replicate you every password hash in the domain:</p>
+<pre><code>$acl = Get-Acl &quot;AD:DC=harborline,DC=local&quot;
+$acl.Access | Where-Object { $_.AccessControlType -eq &#x27;Allow&#x27; } |
+  Format-Table IdentityReference, ObjectType -AutoSize</code></pre>
+<p>One service account holds both GUIDs. It never needs them: only domain controllers do.</p>
+<p><strong>2. Remove the ACEs</strong> -- keep the account, take the rights:</p>
+<pre><code>$acl.Access | Where-Object { $_.IdentityReference -like &#x27;*svc_repl&#x27; } |
+  ForEach-Object { $acl.RemoveAccessRuleSpecific($_) | Out-Null }
+Set-Acl -Path &quot;AD:DC=harborline,DC=local&quot; -AclObject $acl</code></pre>
+<p><strong>3. Confirm.</strong> The Format-Table above no longer lists the account against either replication GUID.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-gpo_persistence_removed">
+        <h3>HARD: The GPO pushing a Run-key payload to every domain machine is removed (or its value cleared) <span class="wt-pts">8 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Hunt the attacker&#x27;s GPO.</strong> List every GPO and look for one nobody recognizes -- its display name borrows a familiar product, but no admin created it:</p>
+<pre><code>Get-GPO -All | Select-Object DisplayName, CreationTime, Owner | Sort-Object CreationTime</code></pre>
+<p>The fresh one at the top was made by the compromise. Read what it pushes:</p>
+<pre><code>Get-GPRegistryValue -Name &#x27;&lt;the GPO&gt;&#x27; -Key &#x27;HKLM\Software\Microsoft\Windows\CurrentVersion\Run&#x27;</code></pre>
+<p>A Run-key value launching a hidden PowerShell script from C:\ProgramData\Subsystems -- persistence on every machine the GPO reaches, re-armed by every policy refresh.</p>
+<p><strong>2. Delete the GPO</strong> (or just its registry value if the name is needed -- it is not):</p>
+<pre><code>Remove-GPO -Name &#x27;&lt;the GPO&gt;&#x27;</code></pre>
+<p><strong>3. Confirm.</strong> Get-GPO -All no longer lists it, and the Get-GPRegistryValue call errors with &quot;value not found&quot;. Note the GPO&#x27;s exact display name before deleting -- it is a forensics answer.</p>
+        </div>
+      </section>
+      <p class="wt-group">Penalties &middot; 3 guards &middot; these only subtract</p>
+      <section class="wt-item" id="wt-harborline-transit-legit_staff_intact">
+        <h3>PENALTY: Disabling or deleting the payroll staff account costs 10 points <span class="wt-pts">&minus;10 pts when triggered</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the checked condition must hold &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p>This one only ever subtracts: the moment the payroll staff user <code>rcastillo</code> is disabled or deleted, 10 points come off the board. The roster is the domain&#x27;s evidence -- real employees -- and disabling them &quot;fixes&quot; findings that were never theirs. The planted problems belong to the accounts named in the tasks (and those, too, should be disabled, not deleted).</p>
+<p><strong>Check yourself at any time:</strong></p>
+<pre><code>Get-ADUser rcastillo -Properties Enabled     # Enabled : True</code></pre>
+<p>If it prints False, re-enable the account before anything else -- the agent re-scores every pass, so a re-enabled account stops the bleed:</p>
+<pre><code>Enable-ADAccount -Identity rcastillo</code></pre>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-payroll_file_present">
+        <h3>PENALTY: Destroying the payroll export evidence at C:\HarborlineData\payroll-export.csv costs 10 points <span class="wt-pts">&minus;10 pts when triggered</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>C:\HarborlineData\payroll-export.csv</code> must exist &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>C:\HarborlineData\payroll-export.csv</code></p>
+        <div class="wt-body">
+<p>This one only ever subtracts: the moment C:\HarborlineData\payroll-export.csv stops existing, 10 points come off the board. The CSV is the incident&#x27;s evidence -- real payroll rows -- and deleting it is both a scoring penalty and the cardinal incident-response sin: destroying what you were supposed to protect.</p>
+<p><strong>The trap sits in the tasks next door:</strong> the ACL and share fixes are done IN PLACE (<code>icacls /remove</code>, <code>Revoke-SmbShareAccess</code>). Never &quot;solve&quot; a permissions problem by removing the file, and never reset the C:\HarborlineData tree wholesale.</p>
+<p><strong>Check yourself at any time:</strong></p>
+<pre><code>Test-Path C:\HarborlineData\payroll-export.csv     # True</code></pre>
+<p>If it prints False, restore the file before anything else -- the agent re-scores every pass, so a restored file stops the bleed.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-dns_service_running">
+        <h3>PENALTY: Stopping the DNS Server service costs 10 points <span class="wt-pts">&minus;10 pts when triggered</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>DNS</code> must be running &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>DNS</code></p>
+        <div class="wt-body">
+<p>This one only ever subtracts: the moment the DNS Server service stops, 10 points come off the board -- and that is before the domain itself stops resolving, which breaks EVERYTHING (this DC runs DNS for harborline.local; kill it and authentication, GPO, and your own sessions all follow it down).</p>
+<p><strong>Check yourself at any time:</strong></p>
+<pre><code>Get-Service DNS        # Running</code></pre>
+<p>If it shows Stopped, start it before anything else -- the agent re-scores every pass, so a running service stops the bleed:</p>
+<pre><code>Start-Service DNS</code></pre>
+        </div>
+      </section>
+      <p class="wt-group">Forensics &middot; 8 questions &middot; 64 points</p>
+      <section class="wt-item" id="wt-harborline-transit-fq_hidden_dollar_account">
+        <h3>Q1. One rogue account hides behind a dollar-suffix name so it blends into the computer accounts. What is that account's username? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>helpdesk$</code> or <code>helpdesk$</code> or <code>helpdesk</code></p>
+<p><strong>How to find it.</strong></p>
+<p>Sweep the enabled USER accounts for names that end in <code>$</code> -- the costume computers wear, borrowed by one thing in the user listing that has no machine behind it:</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; |
+  Where-Object { $_.SamAccountName -like &#x27;*$&#x27; } |
+  Select-Object SamAccountName, Description</code></pre>
+<p>(Do this BEFORE disabling anything in the hardening tasks -- a disabled or deleted account stops matching.) The description is the tell: a &quot;tool&quot; account no roster explains. Answer: the SamAccountName shown above, dollar sign INCLUDED.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fq_no_password_account">
+        <h3>Q2. One enabled account is flagged to not require a password at all -- it logs on with an empty one. What is that account's username? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>qa_kiosk</code> or <code>qa_kiosk</code></p>
+<p><strong>How to find it.</strong></p>
+<p>Sweep for the domain-side blank-password flag (the same query the scoring check runs -- do it BEFORE fixing the account):</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; -Properties PasswordNotRequired |
+  Where-Object { $_.PasswordNotRequired } |
+  Select-Object SamAccountName, Description</code></pre>
+<p>One account comes back, wearing a QA-kiosk description. Answer: <code>qa_kiosk</code> (lowercase, with the underscore).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fq_asrep_user">
+        <h3>Q3. One domain account was left WITHOUT Kerberos preauthentication, making it an AS-REP roasting target. What is that account's username? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>svc_turnstile</code> or <code>svc_turnstile</code></p>
+<p><strong>How to find it.</strong></p>
+<p>AS-REP roasting needs no password at all: with &quot;Do not require Kerberos preauthentication&quot; ticked, anyone can ask the DC for that account&#x27;s encrypted AS-REP and crack it offline. Sweep for it the way the scoring check does:</p>
+<pre><code>Get-ADUser -Filter &#x27;Enabled -eq $true&#x27; -Properties DoesNotRequirePreauth |
+  Where-Object { $_.DoesNotRequirePreauth } |
+  Select-Object SamAccountName, Description
+&lt;one account&gt;   Legacy fare-gate monitoring agent</code></pre>
+<p>The description (&quot;Legacy fare-gate monitoring agent&quot;) is the tell: a &quot;compatibility&quot; checkbox that quietly shipped a roasting target. Answer: the SamAccountName shown above (lowercase, with the underscore).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fq_gpp_password">
+        <h3>Q4. A Group Policy Preferences file under SYSVOL stores a local-admin password AES-encrypted with Microsoft's published MS14-025 key. What is the DECRYPTED cleartext password? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>FareKiosk2026!</code> or <code>FareKiosk2026!</code></p>
+<p><strong>How to find it.</strong></p>
+<p><strong>1. Find the file</strong> (do this BEFORE deleting it in the hardening task -- the file is the evidence):</p>
+<pre><code>Get-ChildItem C:\Windows\SYSVOL\domain\Policies -Recurse -Filter Groups.xml |
+  Select-String -Pattern &#x27;cpassword&#x27; -List</code></pre>
+<p><strong>2. Read the cpassword attribute</strong> -- a base64 AES blob:</p>
+<pre><code>[xml]$x = Get-Content &lt;the Groups.xml path&gt;
+$x.Groups.User.Properties.cpassword</code></pre>
+<p><strong>3. Decrypt it with the published key</strong> -- gpp-decrypt (Kali/SecLists) one-liner, or the same AES-256-CBC/zero-IV recipe in Python or PowerShell. The key shipped inside every Windows image&#x27;s GPP CLR files until Microsoft published it in MS14-025 (2014):</p>
+<pre><code>gpp-decrypt &lt;the cpassword blob&gt;</code></pre>
+<p>Case matters: the password is exactly the plaintext the preference was authored with (<code>FareKiosk2026!</code>).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fq_rogue_gpo">
+        <h3>Q5. Attackers created a Group Policy Object that pushes a Run-key payload to every machine in the domain. What is that GPO's exact display name? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>TransitPulse</code> or <code>TransitPulse</code> or <code>transitpulse</code></p>
+<p><strong>How to find it.</strong></p>
+<p>List every GPO in the domain and sort by creation -- the attacker&#x27;s is the newest and its owner is not your change process:</p>
+<pre><code>Get-GPO -All | Select-Object DisplayName, CreationTime, Owner |
+  Sort-Object CreationTime -Descending | Select-Object -First 5</code></pre>
+<p>The one that carries an HKLM Run registry value pointing at C:\ProgramData\Subsystems is the persistence. The display name is one word, no spaces: <code>TransitPulse</code> (any casing scores).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fq_task_name">
+        <h3>Q6. A rogue scheduled task ran a payload out of C:\ProgramData\Subsystems while wearing a browser-updater costume. What is the task's exact name? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>ChromeUpdateCore</code> or <code>ChromeUpdateCore</code> or <code>chromeupdatecore</code></p>
+<p><strong>How to find it.</strong></p>
+<p>Browse the Task Scheduler Library (taskschd.msc) or query past the Microsoft folders:</p>
+<pre><code>Get-ScheduledTask | Where-Object { $_.TaskPath -notlike &#x27;\Microsoft*&#x27; } |
+  Select-Object TaskName, State</code></pre>
+<p>One name wears a browser-updater costume; the action confesses: <code>(Get-ScheduledTask &lt;the name&gt;).Actions</code> executes <code>-File &quot;C:\ProgramData\Subsystems\chromeupdate.ps1&quot;</code> as SYSTEM. (There is a SECOND impostor in the library in an office-telemetry costume -- the question asks for the BROWSER-UPDATER one. Any casing scores.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fq_runkey_value">
+        <h3>Q7. Run keys under HKLM launch hidden PowerShell payloads at logon. What is the exact name of the registry VALUE whose payload file is fleetpulse.ps1? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>FleetPulseCore</code> or <code>FleetPulseCore</code> or <code>fleetpulsecore</code></p>
+<p><strong>How to find it.</strong></p>
+<p>Walk the autoruns that fire at logon -- the HKLM Run key first:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&quot;</code></pre>
+<p>Two values start hidden PowerShell scripts from the same attacker-made directory; the question asks for the one whose command ends in fleetpulse.ps1. The answer is the registry VALUE name -- the left-hand column, not the command (<code>FleetPulseCore</code>, case-insensitive). (Already deleted it in the hardening task? The name was in this query&#x27;s output before you cleaned -- which is why findings get noted first.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-harborline-transit-fq_ifeo_executable">
+        <h3>Q8. An Image File Execution Options Debugger hijack waits on one of the two accessibility executables that launch from the logon screen. Which executable is hijacked -- sethc.exe or utilman.exe? <span class="wt-pts">8 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>sethc.exe</code> or <code>sethc.exe</code> or <code>sethc</code></p>
+<p><strong>How to find it.</strong></p>
+<p>Both accessibility executables have an IFEO key worth checking; one of them carries a Debugger value that redirects its unauthenticated logon-screen launch into a hidden payload:</p>
+<pre><code>reg query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe&quot; /v Debugger
+reg query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\utilman.exe&quot; /v Debugger</code></pre>
+<p>One query returns a Debugger value pointing into C:\ProgramData\Subsystems, the other errors. The answer is the NAME of the executable whose key carries the hijack (<code>sethc.exe</code> -- the Sticky Keys program; utilman.exe scores only if that is where YOUR query found it).</p>
+        </div>
+      </section>
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
 
   <article class="challenge">
     <h2>Vermilion Deep-Space Relay</h2>
