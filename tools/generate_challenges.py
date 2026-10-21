@@ -33,8 +33,9 @@ from boxbuilder.mdhtml import markdown_to_html  # noqa: E402
 PORTAL_BASE = "https://vms.dawgsec.com/claim?code="
 
 # Real pool codes re-verified against the prod portal's configs.json on
-# 2026-09-27 (all eight confirmed unchanged; XPV8Z created 2026-09-25). If a
-# pool is retired and re-coded, update the code here and re-run this script.
+# 2026-09-27 (all eight confirmed unchanged; XPV8Z created 2026-09-25).
+# 3SNPA re-verified against the portal's /api/types on 2026-10-21. If a pool is
+# retired and re-coded, update the code here and re-run this script.
 # `iso` drives the page's default sort (newest run date first); `date` is the
 # display string.
 BOXES = [
@@ -47,6 +48,7 @@ BOXES = [
     {"dir": "meridian-hq", "code": "S6QE5", "os": "Windows", "flavor": "Windows Server · Active Directory", "date": "Sept 23, 2026", "iso": "2026-09-23"},
     {"dir": "vermilion-relay", "code": "XPV8Z", "os": "Linux", "flavor": "Xubuntu XFCE", "date": "Sept 25, 2026", "iso": "2026-09-25"},
     {"dir": "harborline-transit", "code": "3WBEH", "os": "Windows", "flavor": "Windows Server · Active Directory", "date": "Sept 28, 2026", "iso": "2026-09-28"},
+    {"dir": "lantern-hill-library", "code": "3SNPA", "os": "Linux", "flavor": "Debian 13 · headless CLI", "date": "Oct 5, 2026", "iso": "2026-10-05"},
 ]
 
 

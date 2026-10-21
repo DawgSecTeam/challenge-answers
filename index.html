@@ -145,10 +145,535 @@
 
       <div class="search-wrap">
          <input id="search" type="search" placeholder="Search challenges&hellip;" autocomplete="off" autofocus>
-         <span id="count">9 of 9</span>
+         <span id="count">10 of 10</span>
       </div>
 
-      <div id="empty" hidden>No challenges match &mdash; clear the search to see all 9.</div>
+      <div id="empty" hidden>No challenges match &mdash; clear the search to see all 10.</div>
+
+  <article class="challenge">
+    <h2>Lantern Hill Community Library</h2>
+    <p class="ch-meta">Linux &middot; Debian 13 · headless CLI &middot; 380 pts &middot; Oct 5, 2026</p>
+    <div class="ch-links">
+      <a class="claim" href="https://vms.dawgsec.com/claim?code=3SNPA" rel="noopener">Start challenge VM&nbsp;&rarr;</a>
+      <details class="walkthrough">
+        <summary>Answer walkthrough</summary>
+        <p class="spoiler-note">Spoilers below &mdash; this gives away every point on the box. Try the box first.</p>
+        <div class="wt-layout">
+          <nav class="wt-toc" aria-label="Answer key contents">
+      <p class="wt-toc-group">The challenges</p>
+      <a href="#wt-lantern-hill-library-sshd_root_login_closed" title="EASY: SSH no longer permits direct password login as the superuser account">EASY: SSH no longer permits direct password login as the superuser account</a>
+      <a href="#wt-lantern-hill-library-sshd_password_auth_off" title="EASY: SSH no longer accepts password authentication (keys only)">EASY: SSH no longer accepts password authentication (keys only)</a>
+      <a href="#wt-lantern-hill-library-nightdesk_removed" title="EASY: The backdoor account sharing the superuser's UID is removed">EASY: The backdoor account sharing the superuser's UID is removed</a>
+      <a href="#wt-lantern-hill-library-authorized_keys_clean" title="EASY: The attacker's SSH key is gone from authorized_keys">EASY: The attacker's SSH key is gone from authorized_keys</a>
+      <a href="#wt-lantern-hill-library-rogue_module_removed" title="EASY: The plugin file the attacker dropped into the catalog app is deleted">EASY: The plugin file the attacker dropped into the catalog app is deleted</a>
+      <a href="#wt-lantern-hill-library-exfil_dump_removed" title="EASY: The attacker's staged copy of the catalog is deleted">EASY: The attacker's staged copy of the catalog is deleted</a>
+      <a href="#wt-lantern-hill-library-tamper_cron_removed" title="EASY: The /etc/cron.d job that keeps re-breaking the holds desk (and its payload) are both gone">EASY: The /etc/cron.d job that keeps re-breaking the holds desk (and its payload) are both gone</a>
+      <a href="#wt-lantern-hill-library-firewall_rule_removed" title="EASY: The firewall rule welcoming the attacker's address back is gone (live ruleset AND the persisted file)">EASY: The firewall rule welcoming the attacker's address back is gone (live ruleset AND the persisted file)</a>
+      <a href="#wt-lantern-hill-library-hosts_redirect_removed" title="EASY: The hosts file no longer redirects a trusted hostname to the attacker's address">EASY: The hosts file no longer redirects a trusted hostname to the attacker's address</a>
+      <a href="#wt-lantern-hill-library-motd_script_gone" title="EASY: The planted login-banner script is deleted">EASY: The planted login-banner script is deleted</a>
+      <a href="#wt-lantern-hill-library-sshd_empty_passwords_off" title="MODERATE: SSH no longer permits empty passwords">MODERATE: SSH no longer permits empty passwords</a>
+      <a href="#wt-lantern-hill-library-plugins_dir_perms_fixed" title="MODERATE: The app's plugins directory is no longer world-writable">MODERATE: The app's plugins directory is no longer world-writable</a>
+      <a href="#wt-lantern-hill-library-app_secrets_perms_fixed" title="MODERATE: The app's credentials file /opt/library/.env is no longer world-writable">MODERATE: The app's credentials file /opt/library/.env is no longer world-writable</a>
+      <a href="#wt-lantern-hill-library-timer_neutralized" title="MODERATE: The systemd timer (and its shelf-scrambling payload) is disabled, removed, and gone from disk">MODERATE: The systemd timer (and its shelf-scrambling payload) is disabled, removed, and gone from disk</a>
+      <a href="#wt-lantern-hill-library-rogue_service_removed" title="MODERATE: The disguised 'metrics' service is disabled and its payload deleted">MODERATE: The disguised 'metrics' service is disabled and its payload deleted</a>
+      <a href="#wt-lantern-hill-library-ld_preload_removed" title="MODERATE: The loader-level implant is gone from the loader config and from disk">MODERATE: The loader-level implant is gone from the loader config and from disk</a>
+      <a href="#wt-lantern-hill-library-tools_uninstalled" title="MODERATE: The attacker's password-guessing toolkit is uninstalled">MODERATE: The attacker's password-guessing toolkit is uninstalled</a>
+      <a href="#wt-lantern-hill-library-system_bashrc_clean" title="MODERATE: The system-wide /etc/bash.bashrc no longer carries the attacker's line">MODERATE: The system-wide /etc/bash.bashrc no longer carries the attacker's line</a>
+      <a href="#wt-lantern-hill-library-auditd_rules_intact" title="MODERATE: The audit daemon is still running with its watch rules loaded (do not blind the box)">MODERATE: The audit daemon is still running with its watch rules loaded (do not blind the box)</a>
+      <a href="#wt-lantern-hill-library-db_general_log_on" title="MODERATE: The database's query log is still ON (do not mute the other witness)">MODERATE: The database's query log is still ON (do not mute the other witness)</a>
+      <a href="#wt-lantern-hill-library-backdoor_sshd_removed" title="HARD: The second sshd listener on port 2222 is disabled and no longer listening">HARD: The second sshd listener on port 2222 is disabled and no longer listening</a>
+      <a href="#wt-lantern-hill-library-beacon_neutralized" title="HARD: The disguised 'cache maintenance' implant is disabled and its binary is gone">HARD: The disguised 'cache maintenance' implant is disabled and its binary is gone</a>
+      <a href="#wt-lantern-hill-library-sudoers_rule_removed" title="HARD: The NOPASSWD grant in /etc/sudoers.d is removed">HARD: The NOPASSWD grant in /etc/sudoers.d is removed</a>
+      <a href="#wt-lantern-hill-library-log_truncator_removed" title="HARD: The scheduled job that keeps emptying the text logs is removed">HARD: The scheduled job that keeps emptying the text logs is removed</a>
+      <a href="#wt-lantern-hill-library-timezone_restored" title="HARD: The system clock is no longer parked in the attacker's timezone (restore the library's zone)">HARD: The system clock is no longer parked in the attacker's timezone (restore the library's zone)</a>
+      <p class="wt-toc-group">Penalties</p>
+      <a href="#wt-lantern-hill-library-catalog_app_healthy" title="PENALTY: The catalog app (library-app) is not running (you broke the service instead of evicting the intruder)">PENALTY: The catalog app (library-app) is not running (you broke the service instead of evicting the intruder)</a>
+      <a href="#wt-lantern-hill-library-db_reachable" title="PENALTY: The catalog database is unreachable (locked yourself out of the shelves?)">PENALTY: The catalog database is unreachable (locked yourself out of the shelves?)</a>
+      <p class="wt-toc-group">Forensics</p>
+      <a href="#wt-lantern-hill-library-fq-compromised-account" title="Q1. The login records survived in more places than the intruder could wipe. Which account's password fell to the password-guessing attack?">Q1. The login records survived in more places than the intruder could wipe. Which account's password fell to the password-guessing attack?</a>
+      <a href="#wt-lantern-hill-library-fq-source-ip" title="Q2. The guessing came from one address, over and over, until it worked. Type the IP address the intruder connected from.">Q2. The guessing came from one address, over and over, until it worked. Type the IP address the intruder connected from.</a>
+      <a href="#wt-lantern-hill-library-fq-key-comment" title="Q3. Someone planted an SSH public key for passwordless access. Type the comment tag at the END of that key line (it names the intruder).">Q3. Someone planted an SSH public key for passwordless access. Type the comment tag at the END of that key line (it names the intruder).</a>
+      <a href="#wt-lantern-hill-library-fq-uid0-account" title="Q4. The account list hides a second account that shares the superuser's numeric identity. Type its name.">Q4. The account list hides a second account that shares the superuser's numeric identity. Type its name.</a>
+      <a href="#wt-lantern-hill-library-fq-tamper-cron" title="Q5. One scheduled job keeps undoing your repairs to the holds desk. Type the filename of that job -- it lives in the system cron drop-in directory.">Q5. One scheduled job keeps undoing your repairs to the holds desk. Type the filename of that job -- it lives in the system cron drop-in directory.</a>
+      <a href="#wt-lantern-hill-library-fq-timer-cadence" title="Q6. A systemd timer re-fires a shelf-scrambling payload on a fixed cadence. How often does it re-fire? (Give the OnUnitActiveSec value.)">Q6. A systemd timer re-fires a shelf-scrambling payload on a fixed cadence. How often does it re-fire? (Give the OnUnitActiveSec value.)</a>
+      <a href="#wt-lantern-hill-library-fq-rogue-module" title="Q7. The catalog app hot-loads plugin files from its plugins directory. One file there is not the library's. Type that file's name.">Q7. The catalog app hot-loads plugin files from its plugins directory. One file there is not the library's. Type that file's name.</a>
+      <a href="#wt-lantern-hill-library-fq-admin-path" title="Q8. The catalog app's own service journal logged every request it served -- the intruder's included. Type the URL path of the admin route the tampering requests hit.">Q8. The catalog app's own service journal logged every request it served -- the intruder's included. Type the URL path of the admin route the tampering requests hit.</a>
+      <a href="#wt-lantern-hill-library-fq-db-table" title="Q9. The database's query log records the statements that cancelled holds. Which table did those statements change? Type the table name.">Q9. The database's query log records the statements that cancelled holds. Which table did those statements change? Type the table name.</a>
+      <a href="#wt-lantern-hill-library-fq-exfil-file" title="Q10. Before tampering, the intruder staged a copy of the catalog for the road. Type the filename of that staged export -- it sits in a directory meant for backups.">Q10. Before tampering, the intruder staged a copy of the catalog for the road. Type the filename of that staged export -- it sits in a directory meant for backups.</a>
+      <a href="#wt-lantern-hill-library-fq-hosts-redirect" title="Q11. The intruder bent this box's name resolution: one extra line in the hosts file sends a trusted update hostname to their own machine. Type that hostname.">Q11. The intruder bent this box's name resolution: one extra line in the hosts file sends a trusted update hostname to their own machine. Type that hostname.</a>
+      <a href="#wt-lantern-hill-library-fq-wiped-logs" title="Q12. A scheduled job empties the classic text logs over and over. Name ANY ONE of the log files it keeps wiping.">Q12. A scheduled job empties the classic text logs over and over. Name ANY ONE of the log files it keeps wiping.</a>
+      <a href="#wt-lantern-hill-library-fq-timezone" title="Q13. Timestamps only line up if the clock does. The box's timezone was moved far, far ahead. What timezone is it set to NOW? (The tz database name, as timedatectl reports it.)">Q13. Timestamps only line up if the clock does. The box's timezone was moved far, far ahead. What timezone is it set to NOW? (The tz database name, as timedatectl reports it.)</a>
+          </nav>
+          <div class="wt-main">
+      <p class="wt-group">The challenges &middot; 25 checks &middot; 250 points</p>
+      <section class="wt-item" id="wt-lantern-hill-library-sshd_root_login_closed">
+        <h3>EASY: SSH no longer permits direct password login as the superuser account <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Grade the effective config, not the file.</strong> sshd reads a main config plus drop-ins, so ask the daemon itself:</p>
+<pre><code>sshd -T | grep -i permitrootlogin</code></pre>
+<p>It reports <code>permitrootlogin yes</code> -- set by the drop-in /etc/ssh/sshd_config.d/99-catalog-remote.conf. The login journal shows the guessing run attacking the superuser account directly before it landed on the staff account; with direct login open, the next run lands on the front door instead.</p>
+<p><strong>2. Shut it.</strong> Add a hardening drop-in so a package upgrade cannot quietly undo you:</p>
+<pre><code>printf &#x27;PermitRootLogin no\n&#x27; &gt; /etc/ssh/sshd_config.d/00-hardening.conf
+systemctl restart ssh</code></pre>
+<p><strong>3. Confirm.</strong> <code>sshd -T | grep -i permitrootlogin</code> now reports <code>no</code> -- that effective value is what the check grades.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-sshd_password_auth_off">
+        <h3>EASY: SSH no longer accepts password authentication (keys only) <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Password auth is what made the guessing possible.</strong> The same journal shows hundreds of failed password attempts before the one that worked. As long as passwords are accepted, every account is one weak password from compromised:</p>
+<pre><code>sshd -T | grep -i passwordauthentication</code></pre>
+<p><strong>2. Turn it off</strong> in the same hardening drop-in:</p>
+<pre><code>printf &#x27;PermitRootLogin no\nPasswordAuthentication no\n&#x27; \
+    &gt; /etc/ssh/sshd_config.d/00-hardening.conf
+systemctl restart ssh</code></pre>
+<p>(Keep your own session open until you have confirmed a second session still works.)</p>
+<p><strong>3. Confirm.</strong> <code>sshd -T | grep -i passwordauthentication</code> reports <code>no</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-nightdesk_removed">
+        <h3>EASY: The backdoor account sharing the superuser's UID is removed <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the <code>nightdesk</code> account must not exist &nbsp;&middot;&nbsp; <strong>Scored on:</strong> the <code>nightdesk</code> account</p>
+        <div class="wt-body">
+<p><strong>1. Audit the roster against the handbook&#x27;s authorized list.</strong> Then look for the subtler trick -- a shared numeric identity:</p>
+<pre><code>awk -F: &#x27;$3 == 0 {print $1, $3, $7}&#x27; /etc/passwd
+id nightdesk</code></pre>
+<p>Two lines with UID 0: the superuser, and <code>nightdesk</code> -- a complete second front door that every &quot;root-only&quot; rule silently trusts.</p>
+<p><strong>2. Remove it completely:</strong></p>
+<pre><code>userdel -r nightdesk</code></pre>
+<p>(<code>-r</code> takes its home directory with it. If userdel complains about a running process, that process is running as UID 0 anyway -- check <code>ps -u nightdesk</code> first.)</p>
+<p><strong>3. Confirm.</strong> <code>id nightdesk</code> errors with &quot;no such user&quot;, and the passwd file shows exactly ONE account with UID 0.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-authorized_keys_clean">
+        <h3>EASY: The attacker's SSH key is gone from authorized_keys <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Keys outlive passwords.</strong> A public key in authorized_keys gives passwordless SSH to whoever holds the private half -- changing every password on the box evicts nobody:</p>
+<pre><code>cat /home/librarian/.ssh/authorized_keys</code></pre>
+<p>The planted line ends with the comment <code>inkmoth@203.0.113.7</code>; every key line carries its owner&#x27;s comment, so read them all. The audit trail saw this file written: <code>ausearch --input /var/log/audit/audit.log -k sshdir -i</code>.</p>
+<p><strong>2. Remove the attacker&#x27;s line</strong> (keep any key the staff actually uses):</p>
+<pre><code>nano /home/librarian/.ssh/authorized_keys</code></pre>
+<p><strong>3. Confirm.</strong> <code>grep inkmoth /home/librarian/.ssh/authorized_keys</code> prints nothing (the check also accepts the file being gone). Note the forensics file asks for that key&#x27;s comment tag -- read it before you delete it.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-rogue_module_removed">
+        <h3>EASY: The plugin file the attacker dropped into the catalog app is deleted <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>/opt/library/plugins/promo_portal.py</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>/opt/library/plugins/promo_portal.py</code></p>
+        <div class="wt-body">
+<p><strong>1. The app told on itself.</strong> The catalog hot-loads every *.py in its plugins directory within a minute of it appearing -- and says so in its own journal:</p>
+<pre><code>ls -l /opt/library/plugins/
+journalctl -u library-app | grep -i plugin</code></pre>
+<p><code>promo_portal.py</code> is not the library&#x27;s. The journal&#x27;s hot-load line plus the file&#x27;s own first comment name who left it.</p>
+<p><strong>2. Delete it:</strong></p>
+<pre><code>rm /opt/library/plugins/promo_portal.py</code></pre>
+<p><strong>3. Confirm.</strong> <code>ls /opt/library/plugins/</code> shows only the vendor README. (Restarting the app afterwards is good hygiene: the loaded module stays in memory until then.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-exfil_dump_removed">
+        <h3>EASY: The attacker's staged copy of the catalog is deleted <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>/var/backups/catalog-export.sql</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>/var/backups/catalog-export.sql</code></p>
+        <div class="wt-body">
+<p><strong>1. Check the staging places.</strong> /var/backups is where backups belong -- which is exactly why a staged copy hides there in plain sight:</p>
+<pre><code>ls -la /var/backups/
+head /var/backups/catalog-export.sql</code></pre>
+<p>The file&#x27;s own header comment names who made it and why. The database&#x27;s query log shows the export SELECT that preceded it. Deleting it does not un-steal the data, but it closes the stash.</p>
+<p><strong>2. Delete it:</strong></p>
+<pre><code>rm /var/backups/catalog-export.sql</code></pre>
+<p><strong>3. Confirm.</strong> <code>ls /var/backups/</code> no longer lists it. (Forensics: the question about the staged export wants the filename -- you just read it.)</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-tamper_cron_removed">
+        <h3>EASY: The /etc/cron.d job that keeps re-breaking the holds desk (and its payload) are both gone <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Follow the re-breaking.</strong> You fix a patron&#x27;s hold; hours later it is CANCELLED again. Something on a schedule is undoing you:</p>
+<pre><code>ls -l /etc/cron.d/
+cat /etc/cron.d/catalog-maint</code></pre>
+<p>The line runs /opt/inkmoth/catalog-maint as the superuser, hourly at :17. Read the payload: it fires UPDATE statements at the holds table -- which is why the database&#x27;s query log keeps seeing them.</p>
+<p><strong>2. Remove both halves</strong> (either one alone still counts as planted):</p>
+<pre><code>rm -f /etc/cron.d/catalog-maint /opt/inkmoth/catalog-maint</code></pre>
+<p><strong>3. Confirm.</strong> Both paths are gone. Leave the cron DAEMON alone -- the site and database must keep running, and cron runs the box&#x27;s own chores too. The query log stops showing the recurring tamper UPDATEs: that silence is your proof.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-firewall_rule_removed">
+        <h3>EASY: The firewall rule welcoming the attacker's address back is gone (live ruleset AND the persisted file) <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live firewall rules must match the required posture &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the ruleset looking for favors:</strong></p>
+<pre><code>iptables-save | grep -n 203.0.113.7
+cat /etc/iptables/rules.v4</code></pre>
+<p>An INPUT ACCEPT for the attacker&#x27;s address on the backdoor listener&#x27;s port -- a standing invitation, added to both the live ruleset and the persisted file so it survives a reboot.</p>
+<p><strong>2. Delete the rule from both places:</strong></p>
+<pre><code>iptables -D INPUT -p tcp -s 203.0.113.7 --dport 2222 -j ACCEPT
+nano /etc/iptables/rules.v4     # remove the -A INPUT ... line</code></pre>
+<p><strong>3. Confirm.</strong> Neither <code>iptables-save</code> nor rules.v4 mentions the attacker&#x27;s address any more -- the check grades both.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-hosts_redirect_removed">
+        <h3>EASY: The hosts file no longer redirects a trusted hostname to the attacker's address <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Name resolution starts here.</strong> Before DNS is ever asked, /etc/hosts answers -- and one appended line maps a trusted update hostname to the attacker&#x27;s address (the same one from the login journal). Any software on the box that trusts that hostname now trusts THEM:</p>
+<pre><code>cat /etc/hosts</code></pre>
+<p>(The audit trail saw the write too: <code>ausearch --input /var/log/audit/audit.log -k netmap -i</code>.)</p>
+<p><strong>2. Remove the attacker&#x27;s line</strong> -- the stock file does not mention their address anywhere:</p>
+<pre><code>nano /etc/hosts</code></pre>
+<p><strong>3. Confirm.</strong> <code>grep 203.0.113.7 /etc/hosts</code> prints nothing. The forensics file asks WHICH hostname was bent -- read the line before you delete it.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-motd_script_gone">
+        <h3>EASY: The planted login-banner script is deleted <span class="wt-pts">5 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>/etc/update-motd.d/99catalog-tip</code> must be gone from disk &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>/etc/update-motd.d/99catalog-tip</code></p>
+        <div class="wt-body">
+<p><strong>1. The login banner is GENERATED.</strong> Debian runs everything in /etc/update-motd.d in order at each login -- you have been reading attacker output every time you connected:</p>
+<pre><code>ls -l /etc/update-motd.d/
+cat /etc/update-motd.d/99catalog-tip</code></pre>
+<p>The &quot;tip from the night desk&quot; is not a library message.</p>
+<p><strong>2. Delete it</strong> (99 = runs last; nothing stock depends on it):</p>
+<pre><code>rm /etc/update-motd.d/99catalog-tip</code></pre>
+<p><strong>3. Confirm.</strong> <code>ls /etc/update-motd.d/</code> shows only the stock entries, and your next login banner is clean.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-sshd_empty_passwords_off">
+        <h3>MODERATE: SSH no longer permits empty passwords <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Read the whole weak drop-in</strong>, not just one line of it:</p>
+<pre><code>cat /etc/ssh/sshd_config.d/99-catalog-remote.conf
+sshd -T | grep -i permitemptypasswords</code></pre>
+<p><code>PermitEmptyPasswords yes</code> means any account with a blank password can be logged into with NO password at all -- the quiet cousin of the brute force.</p>
+<p><strong>2. Add the countermand</strong> to the hardening drop-in (first match in sshd wins, and drop-ins sort before this 99- file):</p>
+<pre><code>printf &#x27;PermitRootLogin no\nPasswordAuthentication no\nPermitEmptyPasswords no\n&#x27; \
+    &gt; /etc/ssh/sshd_config.d/00-hardening.conf
+systemctl restart ssh</code></pre>
+<p><strong>3. Confirm.</strong> <code>sshd -T | grep -i permitemptypasswords</code> reports <code>no</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-plugins_dir_perms_fixed">
+        <h3>MODERATE: The app's plugins directory is no longer world-writable <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>/opt/library/plugins</code> must have mode <code>0755</code> or stricter &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>/opt/library/plugins</code></p>
+        <div class="wt-body">
+<p><strong>1. Ask how the file got there.</strong> The app runs as <code>catalogsvc</code>; something let just anyone write into its plugin path:</p>
+<pre><code>stat -c &#x27;%a %U:%G %n&#x27; /opt/library/plugins</code></pre>
+<p>It ships 0755 (root:catalogsvc). It is now 0777: every account on the box can plant code the app will execute within a minute. This is the root cause of the dropped module.</p>
+<p><strong>2. Put the mode back</strong> (chmod -- do NOT delete the directory; the app scans it and the check grades its mode):</p>
+<pre><code>chmod 0755 /opt/library/plugins
+chown root:catalogsvc /opt/library/plugins</code></pre>
+<p><strong>3. Confirm.</strong> <code>stat -c &#x27;%a&#x27; /opt/library/plugins</code> shows no write bit for other, and the catalog still serves.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-app_secrets_perms_fixed">
+        <h3>MODERATE: The app's credentials file /opt/library/.env is no longer world-writable <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>/opt/library/.env</code> must have mode <code>0640</code> or stricter &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>/opt/library/.env</code></p>
+        <div class="wt-body">
+<p><strong>1. The app keeps its database credentials in a config file</strong> -- and that file has been loosened so every account can read AND write it:</p>
+<pre><code>stat -c &#x27;%a %U:%G %n&#x27; /opt/library/.env
+cat /opt/library/.env</code></pre>
+<p>Anyone who can write it can repoint the catalog at a database they control; anyone who can read it owns the DB account inside.</p>
+<p><strong>2. Tighten it</strong> (it ships root:catalogsvc 0640 -- restore exactly that; the service account still needs to read it):</p>
+<pre><code>chown root:catalogsvc /opt/library/.env
+chmod 0640 /opt/library/.env</code></pre>
+<p><strong>3. Confirm.</strong> <code>stat -c &#x27;%a&#x27; /opt/library/.env</code> shows 640 (or tighter, as long as the catalog can still read it -- deleting the file breaks the app and costs the site-up penalty).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-timer_neutralized">
+        <h3>MODERATE: The systemd timer (and its shelf-scrambling payload) is disabled, removed, and gone from disk <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Cron is not the only scheduler.</strong> systemd has its own:</p>
+<pre><code>systemctl list-timers --all
+systemctl cat inkmoth-relabel.timer</code></pre>
+<p><code>inkmoth-relabel.timer</code> fires its companion service shortly after boot and then every 45 minutes: a one-shot that prepends X&#x27;s to shelf codes in the books table. &quot;Catalog relabel maintenance&quot; is costume, not job description.</p>
+<p><strong>2. Disable AND stop the timer:</strong></p>
+<pre><code>systemctl disable --now inkmoth-relabel.timer</code></pre>
+<p><strong>3. Remove the unit files and the payload.</strong> Disabling only leaves the files on disk -- one <code>systemctl enable</code> from coming back:</p>
+<pre><code>systemctl daemon-reload
+rm -f /etc/systemd/system/inkmoth-relabel.timer \
+      /etc/systemd/system/inkmoth-relabel.service \
+      /opt/inkmoth/relabel-catalog</code></pre>
+<p><strong>4. Confirm all three graded conditions:</strong> is-enabled no longer says <code>enabled</code>, the .timer file is gone, and the payload is gone. The forensics file asks for the timer&#x27;s re-fire cadence -- read the OnUnitActiveSec line BEFORE you delete the unit.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-rogue_service_removed">
+        <h3>MODERATE: The disguised 'metrics' service is disabled and its payload deleted <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Inventory the units no package owns:</strong></p>
+<pre><code>systemctl list-units --type=service --all | grep -ivE &#x27;ssh|apache|maria|cron|journal|system&#x27;
+systemctl cat metrics-probe.service</code></pre>
+<p>&quot;System metrics probe&quot; measures nothing: it runs a sleep loop from /opt/inkmoth/metrics-probe with Restart=always. A resident process doing nothing is not monitoring -- it is MOORED.</p>
+<p><strong>2. Disable AND stop it:</strong></p>
+<pre><code>systemctl disable --now metrics-probe.service
+systemctl daemon-reload</code></pre>
+<p><strong>3. Delete the payload</strong> so nothing can re-enable it:</p>
+<pre><code>rm -f /opt/inkmoth/metrics-probe</code></pre>
+<p><strong>4. Confirm both graded conditions:</strong> is-enabled no longer says <code>enabled</code>, and the payload is gone from disk.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-ld_preload_removed">
+        <h3>MODERATE: The loader-level implant is gone from the loader config and from disk <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Check the loader itself.</strong> /etc/ld.so.preload lists shared objects the dynamic loader maps into EVERY dynamically-linked process -- including every command you run. It is a rootkit&#x27;s front door:</p>
+<pre><code>cat /etc/ld.so.preload
+file /usr/local/lib/libinkmoth.so
+ldd /bin/ls    # the implant shows up as if it were a normal dependency</code></pre>
+<p><strong>2. Remove both halves</strong> -- the config entry AND the object:</p>
+<pre><code>rm -f /etc/ld.so.preload /usr/local/lib/libinkmoth.so</code></pre>
+<p><strong>3. Confirm.</strong> <code>cat /etc/ld.so.preload</code> errors (or shows only comments) and <code>ldd /bin/ls</code> no longer lists libinkmoth.so. The check grades exactly that: no active preload entries, and the .so gone from disk.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-tools_uninstalled">
+        <h3>MODERATE: The attacker's password-guessing toolkit is uninstalled <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> package <code>hydra</code> must be in the scored state &nbsp;&middot;&nbsp; <strong>Scored on:</strong> package <code>hydra</code></p>
+        <div class="wt-body">
+<p><strong>1. The guessing run used a tool, and the tool stayed behind.</strong> Nothing on a library catalog server has a reason to ship it:</p>
+<pre><code>dpkg -l | grep -E &#x27;hydra|nmap|netcat&#x27;
+which hydra</code></pre>
+<p><strong>2. Remove the toolkit</strong> (all of it -- the check grades hydra, the rest came with it):</p>
+<pre><code>apt-get remove --purge -y hydra nmap netcat-traditional</code></pre>
+<p><strong>3. Confirm.</strong> <code>which hydra</code> prints nothing; <code>dpkg -l</code> no longer lists them.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-system_bashrc_clean">
+        <h3>MODERATE: The system-wide /etc/bash.bashrc no longer carries the attacker's line <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Shells talk.</strong> /etc/bash.bashrc is sourced by bash for EVERY interactive shell on Debian -- one appended line reaches every account at once. If login output has looked... chatty, look here:</p>
+<pre><code>tail -5 /etc/bash.bashrc</code></pre>
+<p>The last line prints an &quot;after-hours&quot; message signed by the intruder.</p>
+<p><strong>2. Cut the line</strong> (keep the rest of the file intact):</p>
+<pre><code>nano /etc/bash.bashrc</code></pre>
+<p><strong>3. Confirm.</strong> <code>grep -i inkmoth /etc/bash.bashrc</code> prints nothing, and a fresh shell is quiet.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-auditd_rules_intact">
+        <h3>MODERATE: The audit daemon is still running with its watch rules loaded (do not blind the box) <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. This one is already true -- your job is to keep it true.</strong> The audit daemon and its watch rules are the box&#x27;s flight recorder; a &quot;cleanup&quot; that stops auditd or flushes its rules scores the same as the attacker disabling it:</p>
+<pre><code>systemctl status auditd
+auditctl -l | head</code></pre>
+<p><strong>2. If it is not active</strong> (or the rules list is empty), restore it:</p>
+<pre><code>systemctl start auditd
+augenrules --load</code></pre>
+<p><strong>3. Confirm.</strong> <code>systemctl is-active auditd</code> says <code>active</code> AND <code>auditctl -l</code> lists the watches. Evict the intruder; never evict the evidence.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-db_general_log_on">
+        <h3>MODERATE: The database's query log is still ON (do not mute the other witness) <span class="wt-pts">10 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. The query log is the database&#x27;s testimony.</strong> It is how you know exactly which statements the intruder ran. Turning the log off &quot;to tidy up&quot; erases the witness for any FUTURE incident:</p>
+<pre><code>mysql -e &#x27;SHOW VARIABLES LIKE &quot;general_log%&quot;&#x27;
+tail /var/log/mysql/general.log</code></pre>
+<p><strong>2. If it is off, switch it back on</strong> (it is configured in /etc/mysql/mariadb.conf.d/99-library-ir.cnf):</p>
+<pre><code>mysql -e &#x27;SET GLOBAL general_log = ON&#x27;</code></pre>
+<p><strong>3. Confirm.</strong> <code>SELECT @@global.general_log</code> returns 1. This check starts true and stays true unless YOU break it.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-backdoor_sshd_removed">
+        <h3>HARD: The second sshd listener on port 2222 is disabled and no longer listening <span class="wt-pts">20 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Count the listeners.</strong> The main sshd is not the only thing answering on this box:</p>
+<pre><code>ss -tlnp | grep -E &#x27;:(22|2222)\b&#x27;
+systemctl cat sshd-alt.service</code></pre>
+<p><code>sshd-alt.service</code> -- &quot;emergency access&quot; -- runs a SECOND sshd on port 2222 with Restart=always, reading the SAME weak config. Every password works twice; hardening port 22 alone fixes nothing here.</p>
+<p><strong>2. Disable AND stop it:</strong></p>
+<pre><code>systemctl disable --now sshd-alt.service
+systemctl daemon-reload</code></pre>
+<p><strong>3. Confirm both graded conditions:</strong> port 2222 is no longer listening (<code>ss -tln</code>) and the unit is no longer enabled (disabled, masked, not-found all count). Remove the unit file too: <code>rm /etc/systemd/system/sshd-alt.service</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-beacon_neutralized">
+        <h3>HARD: The disguised 'cache maintenance' implant is disabled and its binary is gone <span class="wt-pts">20 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Port scans will NOT find this one.</strong> It holds no port. Review units and processes for the plausible-but-unowned:</p>
+<pre><code>systemctl list-units --type=service | grep -i cache
+systemctl cat cache-refresh.service
+ls -l /usr/local/libexec/</code></pre>
+<p>&quot;Cache maintenance&quot; runs a hidden binary that forges packets toward its baked-in destination every 30 seconds, forever, output to /dev/null. Read it with <code>strings /usr/local/libexec/.cache-refresh | grep -E &#x27;203\.|BEA1&#x27;</code> to see where it phones.</p>
+<p><strong>2. Disable AND stop, then delete the binary:</strong></p>
+<pre><code>systemctl disable --now cache-refresh.service
+systemctl daemon-reload
+rm -f /usr/local/libexec/.cache-refresh</code></pre>
+<p><strong>3. Confirm both graded conditions:</strong> the binary is gone from disk and the unit no longer reports <code>enabled</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-sudoers_rule_removed">
+        <h3>HARD: The NOPASSWD grant in /etc/sudoers.d is removed <span class="wt-pts">20 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Audit the sudo drop-ins.</strong> /etc/sudoers.d is where quiet privileges live:</p>
+<pre><code>ls -l /etc/sudoers.d/
+cat /etc/sudoers.d/* 2&gt;/dev/null
+sudo -l -U nightdesk 2&gt;/dev/null</code></pre>
+<p><code>nightdesk-recovery</code> grants the backdoor account passwordless use of a pager that escapes to a shell -- full superuser on demand without ever typing a password.</p>
+<p><strong>2. Remove the drop-in:</strong></p>
+<pre><code>rm /etc/sudoers.d/nightdesk-recovery</code></pre>
+<p>(Do not edit /etc/sudoers itself; the drop-in is the whole finding.)</p>
+<p><strong>3. Confirm.</strong> The file is gone and <code>sudo -l -U nightdesk</code> no longer lists any grant (the account itself should already be removed -- that is its own check).</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-log_truncator_removed">
+        <h3>HARD: The scheduled job that keeps emptying the text logs is removed <span class="wt-pts">20 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Notice what is missing.</strong> The flat text logs are suspiciously tiny and keep resetting -- someone is erasing history on a schedule:</p>
+<pre><code>ls -l /var/log/auth.log /var/log/syslog
+ls -l /etc/cron.d/
+cat /etc/cron.d/log-cleanup</code></pre>
+<p>Every minute it blanks the classic text logs. It failed anyway: the binary journal, the audit trail, and wtmp/btmp kept everything (that is WHY this box&#x27;s story survived). But the eraser goes.</p>
+<p><strong>2. Remove it:</strong></p>
+<pre><code>rm /etc/cron.d/log-cleanup</code></pre>
+<p><strong>3. Confirm.</strong> The file is gone (or no longer references /var/log), and the text logs start accumulating again. The forensics file asks which logs it kept wiping -- read the job BEFORE deleting it.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-timezone_restored">
+        <h3>HARD: The system clock is no longer parked in the attacker's timezone (restore the library's zone) <span class="wt-pts">20 pts</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> the live on-box probe must report the hardened outcome &nbsp;&middot;&nbsp; <strong>Scored on:</strong> a live on-box probe</p>
+        <div class="wt-body">
+<p><strong>1. Distrust the clock, then check it.</strong> Every timestamp in every log is only comparable if the timezone is honest:</p>
+<pre><code>timedatectl
+ls -l /etc/localtime
+ausearch --input /var/log/audit/audit.log -k time-change -i
+# (the audit trail saw the change)</code></pre>
+<p>The zone was moved to the furthest-ahead timezone on Earth -- exactly the kind of &quot;harmless&quot; change that scrambles log correlation and breaks TLS validation.</p>
+<p><strong>2. Restore the library&#x27;s zone:</strong></p>
+<pre><code>timedatectl set-timezone America/New_York</code></pre>
+<p><strong>3. Confirm.</strong> <code>timedatectl</code> reports America/New_York. The check grades that the attacker&#x27;s zone is gone, so any honest zone passes -- but the library&#x27;s real one is America/New_York.</p>
+        </div>
+      </section>
+      <p class="wt-group">Penalties &middot; 2 guards &middot; these only subtract</p>
+      <section class="wt-item" id="wt-lantern-hill-library-catalog_app_healthy">
+        <h3>PENALTY: The catalog app (library-app) is not running (you broke the service instead of evicting the intruder) <span class="wt-pts">&minus;10 pts when triggered</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>library-app</code> must be running &nbsp;&middot;&nbsp; <strong>Scored on:</strong> <code>library-app</code></p>
+        <div class="wt-body">
+<p>This only ever subtracts: if the <code>library-app</code> service is not ACTIVE, 10 points come off. Stopping the app does evict the intruder&#x27;s web access -- and also every patron&#x27;s catalog. Evict the ACCESS, keep the SERVICE: <code>systemctl status library-app</code> should read <code>active (running)</code>. If you stopped it, <code>systemctl start library-app</code> puts it back.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-db_reachable">
+        <h3>PENALTY: The catalog database is unreachable (locked yourself out of the shelves?) <span class="wt-pts">&minus;10 pts when triggered</span></h3>
+        <p class="wt-meta"><strong>Goal:</strong> <code>127.0.0.1</code>:<code>3306</code> must stay reachable &nbsp;&middot;&nbsp; <strong>Scored on:</strong> 127.0.0.1:3306 reachability</p>
+        <div class="wt-body">
+<p>This only ever subtracts: if nothing is listening on 127.0.0.1:3306, 10 points come off. Stopping or masking mariadb does not fix any finding on this box -- the catalog (and its query log) lives in that database. If you stopped it, <code>systemctl start mariadb</code>.</p>
+        </div>
+      </section>
+      <p class="wt-group">Forensics &middot; 13 questions &middot; 130 points</p>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-compromised-account">
+        <h3>Q1. The login records survived in more places than the intruder could wipe. Which account's password fell to the password-guessing attack? <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answer:</strong> <code>librarian</code></p>
+<p><strong>How to find it.</strong></p>
+<p>The guessing run is in the service journal: <code>journalctl -u ssh</code> (or <code>journalctl _COMM=sshd</code>) lists each &quot;Failed password&quot; and then, at the end, &quot;Accepted password for librarian from 203.0.113.7&quot; -- the same story in <code>last</code>/<code>lastb</code>, which the flat-log wiping never touched. Don&#x27;t assume because you&#x27;re logged in AS that account: read the journal and confirm which password actually gave way.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-source-ip">
+        <h3>Q2. The guessing came from one address, over and over, until it worked. Type the IP address the intruder connected from. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>203.0.113.7</code> or <code>203.0.113.7</code></p>
+<p><strong>How to find it.</strong></p>
+<p>Read the same accepted-password line: the source address follows &quot;from&quot;. That one address then reappears in the app journal&#x27;s tampering requests, the firewall rule, and the hosts redirect -- one address, four witnesses. It is a documentation-range address, which is how you know the exercise is staged.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-key-comment">
+        <h3>Q3. Someone planted an SSH public key for passwordless access. Type the comment tag at the END of that key line (it names the intruder). <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>inkmoth@203.0.113.7</code> or <code>inkmoth</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>cat /home/librarian/.ssh/authorized_keys</code> and read every line to the end. Key lines end with a free-text comment naming the key&#x27;s owner -- the planted one signs itself inkmoth@203.0.113.7. Removing the key and reading the tag are the same command; note the tag first.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-uid0-account">
+        <h3>Q4. The account list hides a second account that shares the superuser's numeric identity. Type its name. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answer:</strong> <code>nightdesk</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>awk -F: &#x27;$3 == 0 {print $1}&#x27; /etc/passwd</code> -- two accounts carry UID 0, and only one of them is supposed to. The audit trail&#x27;s identity records (<code>ausearch --input /var/log/audit/audit.log -k identity -i</code>) watched the account get created.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-tamper-cron">
+        <h3>Q5. One scheduled job keeps undoing your repairs to the holds desk. Type the filename of that job -- it lives in the system cron drop-in directory. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>catalog-maint</code> or <code>/etc/cron.d/catalog-maint</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>ls /etc/cron.d/</code> and read the file that is not stock: it runs /opt/inkmoth/catalog-maint hourly, firing the UPDATE that flips holds back to CANCELLED. The database&#x27;s query log shows the same statement repeating on that cadence. Note the filename before you delete the job -- the question and the fix share one <code>ls</code>.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-timer-cadence">
+        <h3>Q6. A systemd timer re-fires a shelf-scrambling payload on a fixed cadence. How often does it re-fire? (Give the OnUnitActiveSec value.) <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>45min</code> or <code>45 min</code> or <code>45 minutes</code> or <code>every 45 min</code> or <code>every 45 minutes</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>systemctl cat inkmoth-relabel.timer</code> and read the [Timer] section: OnBootSec=5min (first fire) and OnUnitActiveSec=45min (the re-fire cadence the question asks for). <code>systemctl list-timers</code> shows the same story live as &quot;next trigger&quot;. Read the unit BEFORE deleting it -- the answer leaves with the file.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-rogue-module">
+        <h3>Q7. The catalog app hot-loads plugin files from its plugins directory. One file there is not the library's. Type that file's name. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>promo_portal.py</code> or <code>/opt/library/plugins/promo_portal.py</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>ls -l /opt/library/plugins/</code> shows the vendor README and one impostor. The app&#x27;s journal announced it the minute it appeared (<code>journalctl -u library-app | grep -i hot-load</code>). Name the file before deleting it -- the filename is the answer.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-admin-path">
+        <h3>Q8. The catalog app's own service journal logged every request it served -- the intruder's included. Type the URL path of the admin route the tampering requests hit. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>/admin/holds/update</code> or <code>admin/holds/update</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>journalctl -u library-app</code> prints one access line per request, client IP first. The intruder&#x27;s address appears three times in a row, all against the same unauthenticated admin route, each followed by an &quot;admin:&quot; line in the app&#x27;s own log. The path in those requests is the answer.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-db-table">
+        <h3>Q9. The database's query log records the statements that cancelled holds. Which table did those statements change? Type the table name. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answer:</strong> <code>holds</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>tail -n 50 /var/log/mysql/general.log</code> and find the UPDATE statements: <code>UPDATE holds SET status=&#x27;CANCELLED&#x27; WHERE status=&#x27;READY&#x27;</code>. The table name is the first word after UPDATE. The recurring entries on the same cadence are the cron job still doing it -- until you evict it.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-exfil-file">
+        <h3>Q10. Before tampering, the intruder staged a copy of the catalog for the road. Type the filename of that staged export -- it sits in a directory meant for backups. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>catalog-export.sql</code> or <code>/var/backups/catalog-export.sql</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>ls -la /var/backups/</code> -- among the honest backups sits a freshly-written SQL dump whose own header comment names its author. The query log shows the SELECT that fed it. Name it before you delete it.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-hosts-redirect">
+        <h3>Q11. The intruder bent this box's name resolution: one extra line in the hosts file sends a trusted update hostname to their own machine. Type that hostname. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answer:</strong> <code>updates.lanternhill-library.org</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>cat /etc/hosts</code> -- one appended line maps a hostname to the attacker&#x27;s address (the same one from the login journal). Any software on the box that trusts that hostname now trusts THEM. The hostname is the first thing on the planted line.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-wiped-logs">
+        <h3>Q12. A scheduled job empties the classic text logs over and over. Name ANY ONE of the log files it keeps wiping. <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>auth.log</code> or <code>syslog</code> or <code>/var/log/auth.log</code> or <code>/var/log/syslog</code></p>
+<p><strong>How to find it.</strong></p>
+<p>Read the eraser before deleting it: <code>cat /etc/cron.d/log-cleanup</code> lists the files it blanks every minute -- any one of them answers the question. Notice what it did NOT touch: the binary journal, the audit trail, and wtmp/btmp all kept the full story, which is the only reason this investigation is possible.</p>
+        </div>
+      </section>
+      <section class="wt-item" id="wt-lantern-hill-library-fq-timezone">
+        <h3>Q13. Timestamps only line up if the clock does. The box's timezone was moved far, far ahead. What timezone is it set to NOW? (The tz database name, as timedatectl reports it.) <span class="wt-pts">10 pts</span></h3>
+        <div class="wt-body">
+<p><strong>Accepted answers:</strong> <code>Pacific/Kiritimati</code> or <code>kiritimati</code> or <code>UTC+14</code> or <code>Etc/GMT-14</code></p>
+<p><strong>How to find it.</strong></p>
+<p><code>timedatectl</code> (or <code>ls -l /etc/localtime</code>) names the zone: the furthest-ahead timezone on Earth, UTC+14. The audit trail saw the change (<code>ausearch --input /var/log/audit/audit.log -k time-change -i</code>). Restoring the library&#x27;s real zone (America/New_York) is the paired hardening check.</p>
+        </div>
+      </section>
+          </div>
+        </div>
+      </details>
+    </div>
+  </article>
 
   <article class="challenge">
     <h2>Harborline Transit Authority</h2>
